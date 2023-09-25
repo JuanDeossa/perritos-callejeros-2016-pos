@@ -18,3 +18,10 @@ body{
     @apply transition;
     @apply duration-300;
 }
+
+.white-title{
+    @apply text-white;
+    @apply text-5xl;
+    @apply italic;
+    @apply font-bold;   @apply rounded-full;
+}

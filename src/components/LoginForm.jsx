@@ -1,27 +1,22 @@
 "use client";
-import { supabase } from "@/supabase/client";
-import { useRouter } from "next/navigation";
-import React from "react";
+// import { getAllProducts } from "@/firebase/client";
+// import { updateDoc } from "firebase/firestore";
+// import { useRouter } from "next/navigation";
+// import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 
+
 export const LoginForm = () => {
-  const router=useRouter()
-  const submitAction = async (data) => {
-    try {
-      const res = await supabase.auth.signInWithPassword({
-        email: data?.email,
-        password: data?.password,
-      });
-      // console.log(res);
-      const { session, user } = res?.data;
-      if (session) {
-        await sessionStorage.setItem("token", session?.access_token);
-        await sessionStorage.setItem("user", user?.id);
-        router.push('./dashboard')
-      }
-    } catch (error) {
-      console.error(error);
-    }
+  // const [products, setProducts] = useState()
+
+  // const updateAllProducts=async()=>{
+  //   setProducts(await getAllProducts())
+  // }
+
+  // const router=useRouter()
+
+  const submitAction = async () => {
+    console.log("submitAction");
   };
 
   const { register, handleSubmit, watch } = useForm({
@@ -30,6 +25,10 @@ export const LoginForm = () => {
       password: process.env.NEXT_PUBLIC_PASSWORD,
     },
   });
+
+  // useEffect(()=>{
+  //   updateAllProducts()
+  // },[])
 
   return (
     <form
@@ -59,6 +58,7 @@ export const LoginForm = () => {
         Log in
       </button>
       <pre className="text-white">{JSON.stringify(watch(), null, 2)}</pre>
+      {/* <pre className="text-white">{JSON.stringify(products, null, 2)}</pre> */}
     </form>
   );
 };
