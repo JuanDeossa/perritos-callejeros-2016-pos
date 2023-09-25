@@ -1,22 +1,31 @@
 "use client";
-// import { getAllProducts } from "@/firebase/client";
-// import { updateDoc } from "firebase/firestore";
-// import { useRouter } from "next/navigation";
-// import React, { useEffect, useState } from "react";
+import { loginAction } from "@/firebase/client";
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { redirect, router } from "next/navigation";
 import { useForm } from "react-hook-form";
 
 
 export const LoginForm = () => {
-  // const [products, setProducts] = useState()
+// const router=useRouter()
+// const auth = getAuth();
 
-  // const updateAllProducts=async()=>{
-  //   setProducts(await getAllProducts())
-  // }
+// const loginAction=async({email,password})=>{
+//   signInWithEmailAndPassword(auth, email, password)
+//     .then((userCredential) => {
+//       // Signed in
+//       const user = userCredential.user;
+//       // if (user) {
+//       //   router.push('/dashboard')
+//       // }
+//     })
+//     .catch((error) => {
+//       console.error("signInWithEmailAndPassword:",error);
+//     });
+// }
 
-  // const router=useRouter()
-
-  const submitAction = async () => {
-    console.log("submitAction");
+  const submitAction = async({email,password}) => {
+    // redirect('/dashboard')
+    await loginAction({email:email,password:password})
   };
 
   const { register, handleSubmit, watch } = useForm({
