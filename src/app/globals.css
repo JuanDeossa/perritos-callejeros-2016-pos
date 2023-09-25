@@ -1,3 +1,20 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body{
+    @apply bg-cs_gray1
+}
+
+.button1 {
+    @apply w-full;
+    @apply bg-cs_orange1;
+    @apply text-white;
+    @apply italic;
+    @apply font-semibold;
+    @apply py-3;
+    @apply rounded-full;
+    @apply hover:opacity-80;
+    @apply transition;
+    @apply duration-300;
+}
