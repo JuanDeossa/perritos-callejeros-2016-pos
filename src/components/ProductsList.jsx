@@ -24,8 +24,8 @@ export const ProductsList = () => {
   return (
     <div className='flex flex-col gap-5 my-8'>
       {products?.map(product=>(<ProductCard key={product?.id} product={product}/>))}
-      <button className='button2' onClick={() => dispatch(increment())}>REDUX +</button>
-      <button className='button2' onClick={() => dispatch(decrement())}>REDUX -</button>
+      {/* <button className='button2' onClick={() => dispatch(increment())}>REDUX +</button>
+      <button className='button2' onClick={() => dispatch(decrement())}>REDUX -</button> */}
     </div>
   )
 }
