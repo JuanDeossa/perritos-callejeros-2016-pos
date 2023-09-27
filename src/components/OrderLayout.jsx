@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 
+import {  useSelector } from 'react-redux'
+import { OrderProdcutCard } from "./OrderProdcutCard";
+
 export const OrderLayout = () => {
   const [carProdcts, setCarProdcts] = useState([
     {
@@ -15,16 +18,21 @@ export const OrderLayout = () => {
       units: 2,
     },
   ]);
+
+  const count = useSelector((state) => state.counter.value)
+  const count2 = useSelector((state) => state.counter2.value)
+
   return (
-    <div className="min-h-[400px] border border-white text-5xl text-white flex flex-col gap-4 p-8">
-      OrderLayout
+    <div className="min-h-[400px] border border-white text-5xl text-white flex flex-col gap-4 p-4 justify-between">
+    <div className="flex flex-col gap-3">
       {carProdcts?.map((prod) => (
-        <div key={prod?.id} className="flex flex-col gap-2 text-2xl">
-          <span>{prod?.name}</span>
-          <span>{prod?.price}</span>
-          <span>{prod?.units}</span>
-        </div>
+        <OrderProdcutCard key={prod?.id} prod={prod} />
       ))}
+    </div>
+      <div className="text-4xl">
+        <span className=" text-white">{"Total: "}</span>
+        <span className=" text-white">{"$20.000"}</span>
+      </div>
     </div>
   );
 };

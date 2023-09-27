@@ -6,6 +6,7 @@ import { routes } from "@/routes";
 import { onAuthStateChanged } from "firebase/auth";
 import { useEffect, useState } from "react";
 
+
 export default function Home() {
   const [loading, setLoading] = useState(true);
   useEffect(() => {
@@ -24,8 +25,8 @@ export default function Home() {
     };
   }, []);
   return (
-    <main className="Home flex min-h-screen flex-col items-center justify-between p-24">
-      <>{!loading && <LoginForm />}</>
-    </main>
+      <main className="Home flex min-h-screen flex-col items-center justify-between p-24">
+        <>{!loading && <LoginForm />}</>
+      </main>
   );
 }
