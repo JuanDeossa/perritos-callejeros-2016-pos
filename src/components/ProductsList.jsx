@@ -1,5 +1,5 @@
 'use client'
-import { getAllProducts } from '@/firebase/client'
+import { auth, getAllProducts } from '@/firebase/client'
 import React, { useEffect, useState } from 'react'
 import { ProductCard } from './ProductCard'
 
@@ -10,10 +10,14 @@ export const ProductsList = () => {
     setProducts(await getAllProducts())
   }
   useEffect(()=>{
+    // const userIsLogged = auth.currentUser
+    // if (userIsLogged) {
+    //   console.log("Yes");
+    // }
     updateAllProducts()
-  })
+  },[])
   return (
-    <div className='flex flex-col gap-5 my-8 mx-auto w-full items-center'>
+    <div className='flex flex-col gap-5 my-8'>
       {products?.map(product=>(<ProductCard key={product?.id} product={product}/>))}
     </div>
   )

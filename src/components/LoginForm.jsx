@@ -41,7 +41,7 @@ export const LoginForm = () => {
 
   return (
     <form
-      className="mx-auto mt-8 max-w-[500px] px-10"
+      className="LoginForm mx-auto mt-8 max-w-[500px] px-10"
       onSubmit={handleSubmit(submitAction)}
     >
       <div className="mb-6">

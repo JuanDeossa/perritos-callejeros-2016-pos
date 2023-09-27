@@ -1,13 +1,11 @@
 'use client'
-import LoadingPage1 from '@/components/LoadingPage1'
-import { OrderLayout } from '@/components/OrderLayout'
 import { ProductsList } from '@/components/ProductsList'
 import { auth, logoutAction } from '@/firebase/client'
 import { routes } from '@/routes'
 import { onAuthStateChanged } from 'firebase/auth'
 import React, { useEffect, useState } from 'react'
 
-const DashBoardPage = () => {
+const CheckoutPage = () => {
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
@@ -27,23 +25,17 @@ const DashBoardPage = () => {
   }, []);
 
   return (
-    <div className='DashBoardPage w-full h-screen'>
-      {loading?
-      <div className='w-full h-full place-content-start'>
-        <LoadingPage1/>
-      </div>:
-      <div className='  w-fit flex gap-6'>
-      <div className='border border-white'>
+    <div className='w-80'>
+      {!loading&&
+      <>
         <h1 className='white-title'>DashboardPage</h1>
         <ProductsList />
-        <button className='button2' onClick={logoutAction}>
+        <button className='button1' onClick={logoutAction}>
           Log Out
         </button>
-      </div>
-      <OrderLayout/>
-      </div>}
+      </>}
     </div>
   );
 }
 
-export default DashBoardPage
+export default CheckoutPage

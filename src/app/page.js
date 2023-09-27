@@ -1,6 +1,7 @@
 'use client'
+import LoadingPage1 from "@/components/LoadingPage1";
 import { LoginForm } from "@/components/LoginForm";
-import { auth } from "@/firebase/client";
+import { auth, getAllProducts } from "@/firebase/client";
 import { routes } from "@/routes";
 import { onAuthStateChanged } from "firebase/auth";
 import { useEffect, useState } from "react";
@@ -23,7 +24,7 @@ export default function Home() {
     };
   }, []);
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
+    <main className="Home flex min-h-screen flex-col items-center justify-between p-24">
       <>{!loading && <LoginForm />}</>
     </main>
   );
