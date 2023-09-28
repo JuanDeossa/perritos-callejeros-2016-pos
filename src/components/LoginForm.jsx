@@ -66,7 +66,7 @@ export const LoginForm = () => {
       >
         Log in
       </button>
-      <pre className="text-white">{JSON.stringify(watch(), null, 2)}</pre>
+      {/* <pre className="text-white">{JSON.stringify(watch(), null, 2)}</pre> */}
       {/* <pre className="text-white">{JSON.stringify(products, null, 2)}</pre> */}
     </form>
   );

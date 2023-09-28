@@ -16,6 +16,7 @@ module.exports = {
         cs_purple1:"rgba(99,102,241, .8)",
         cs_gray1:'#161616',
         cs_orange1:'#dd8903',
+        cs_tr1:'#252323d9'
       }
     },
   },

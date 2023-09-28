@@ -13,8 +13,8 @@ export const OrderProdcutCard = ({prod}) => {
         <span className='text-lg opacity-100 leading-5'>cantidad: {prod?.units}</span>
       </div>
       <div className='flex gap-2'>
-        <QuantityButton add={false}/>
-        <QuantityButton/>
+        <QuantityButton id={prod?.id} add={false}/>
+        <QuantityButton id={prod?.id}/>
       </div>
     </div>
   )

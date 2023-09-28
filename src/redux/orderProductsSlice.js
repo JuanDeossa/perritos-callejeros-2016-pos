@@ -21,17 +21,41 @@ export const orderProductsListSlice = createSlice({
   name: "orderProductsList",
   initialState,
   reducers: {
-    increment: (state) => {
-      console.log("increment");
-      // state.value += 1;
+    increment: (state, action) => {
+      const { payload: id } = action;
+      console.log(id);
+      state.value = state.value.map((prod) => {
+        if (prod.id === id) {
+          return {
+            ...prod,
+            units: prod.units + 1,
+          };
+        } else {
+          return prod;
+        }
+      });
     },
-    decrement: (state) => {
-      console.log("decrement");
-      // state.value -= 1;
+    decrement: (state, action) => {
+      const { payload: id } = action;
+      state.value = state.value
+        .map((prod) => {
+          if (prod?.id === id) {
+            if (prod?.units <= 1) {
+              return;
+            }
+            return {
+              ...prod,
+              units: prod.units - 1,
+            };
+          } else {
+            return prod;
+          }
+        })
+        .filter((prod) => !!prod);
     },
     deleteItem: (state, action) => {
-      console.log("deleteItem");
-      // state.value += action.payload;
+      const { payload: id } = action;
+      state.value = state.value.filter((prod) => prod.id !== id);
     },
   },
 });

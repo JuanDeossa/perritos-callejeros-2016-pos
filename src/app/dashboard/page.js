@@ -1,5 +1,6 @@
 "use client";
 import LoadingPage1 from "@/components/LoadingPage1";
+import { Modal1 } from "@/components/Modal1";
 import { OrderLayout } from "@/components/OrderLayout";
 import { ProductsList } from "@/components/ProductsList";
 import { auth, logoutAction } from "@/firebase/client";
@@ -9,6 +10,7 @@ import React, { useEffect, useState } from "react";
 
 const DashBoardPage = () => {
   const [loading, setLoading] = useState(true);
+  const [showModal, setShowModal] = useState(true);
 
   useEffect(() => {
     // Agregar un observador para verificar el estado de autenticación del usuario
@@ -44,6 +46,7 @@ const DashBoardPage = () => {
           <OrderLayout />
         </div>
       )}
+      <Modal1 open={showModal} setShowModal={setShowModal}/>
     </div>
   );
 };
