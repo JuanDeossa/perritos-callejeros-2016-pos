@@ -7,10 +7,14 @@ import { auth, logoutAction } from "@/firebase/client";
 import { routes } from "@/routes";
 import { onAuthStateChanged } from "firebase/auth";
 import React, { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 
 const DashBoardPage = () => {
   const [loading, setLoading] = useState(true);
-  const [showModal, setShowModal] = useState(true);
+  // const [showModal, setShowModal] = useState(true);
+
+  const modalStates = useSelector((state) => state.modalStates.value)
+  // console.log(modalStates);
 
   useEffect(() => {
     // Agregar un observador para verificar el estado de autenticación del usuario
@@ -46,7 +50,7 @@ const DashBoardPage = () => {
           <OrderLayout />
         </div>
       )}
-      <Modal1 open={showModal} setShowModal={setShowModal}/>
+      <Modal1/>
     </div>
   );
 };

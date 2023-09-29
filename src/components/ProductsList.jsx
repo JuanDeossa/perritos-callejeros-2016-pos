@@ -1,31 +1,40 @@
-'use client'
-import { auth, getAllProducts } from '@/firebase/client'
-import React, { useEffect, useState } from 'react'
-import { ProductCard } from './ProductCard'
-
-import { useDispatch } from 'react-redux'
-import { decrement, increment } from '@/redux/counterSlice'
+"use client";
+import { auth, getAllProducts } from "@/firebase/client";
+import React, { useEffect, useState } from "react";
+import { ProductCard } from "./ProductCard";
+import { useDispatch, useSelector } from "react-redux";
+import { setProducts } from "@/redux/productsSlice";
+import { useSessionStorage } from "@/hooks/useSessionStorage";
 
 export const ProductsList = () => {
-  const [products, setProducts] = useState()
+  const dispatch = useDispatch();
+  const productsFromStore = useSelector((state) => state.products.value);
+  const [productsAlrready, setProductsAlrready] = useSessionStorage(
+    "products",
+    []
+  );
+  // const orden = useSelector((state) => state.orderProductsList.value);
 
-  const dispatch = useDispatch()
-
-  const updateAllProducts=async()=>{
-    setProducts(await getAllProducts())
-  }
-  useEffect(()=>{
-    // const userIsLogged = auth.currentUser
-    // if (userIsLogged) {
-    //   console.log("Yes");
-    // }
-    updateAllProducts()
-  },[])
+  const updateAllProducts = async () => {
+    dispatch(setProducts(await getAllProducts()));
+    setProductsAlrready(await getAllProducts());
+  };
+  // useEffect(() => {
+  //   console.log('cambio la orden');
+  // }, [orden]);
+  useEffect(() => {
+    const OK = productsAlrready.length;
+    if (OK) {
+      dispatch(setProducts(productsAlrready));
+    } else {
+      updateAllProducts();
+    }
+  }, []);
   return (
-    <div className='flex flex-col gap-5 my-8'>
-      {products?.map(product=>(<ProductCard key={product?.id} product={product}/>))}
-      {/* <button className='button2' onClick={() => dispatch(increment())}>REDUX +</button>
-      <button className='button2' onClick={() => dispatch(decrement())}>REDUX -</button> */}
+    <div className="flex flex-col gap-5 my-8">
+      {productsFromStore?.map((product) => (
+        <ProductCard key={product?.id} product={product} />
+      ))}
     </div>
-  )
-}
+  );
+};

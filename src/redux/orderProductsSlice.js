@@ -2,18 +2,6 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   value: [
-    {
-      id: "p1",
-      name: "perrito",
-      price: 4000,
-      units: 1,
-    },
-    {
-      id: "p2",
-      name: "coca cola",
-      price: 3000,
-      units: 1,
-    },
   ],
 };
 
@@ -21,9 +9,31 @@ export const orderProductsListSlice = createSlice({
   name: "orderProductsList",
   initialState,
   reducers: {
+    addNew: (state, action) => {
+      const id = action.payload.id;
+      const objFound = state.value.some((prod) => prod.id === id);
+      if (objFound) {
+        state.value = state.value.map((prod) => {
+          if (prod.id === id) {
+            // console.log("repetido");
+            return {
+              ...prod,
+              units: prod.units + 1,
+            };
+          } else {
+            return prod;
+          }
+        });
+      } else {
+        state.value.push({
+          ...action.payload,
+          units: 1,
+        });
+      }
+    },
     increment: (state, action) => {
       const { payload: id } = action;
-      console.log(id);
+      // console.log(id);
       state.value = state.value.map((prod) => {
         if (prod.id === id) {
           return {
@@ -61,7 +71,7 @@ export const orderProductsListSlice = createSlice({
 });
 
 // Action creators are generated for each case reducer function
-export const { increment, decrement, deleteItem } =
+export const { increment, decrement, deleteItem, addNew } =
   orderProductsListSlice.actions;
 
 export default orderProductsListSlice.reducer;
