@@ -1,6 +1,12 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-import { collection, getDocs, getFirestore } from "firebase/firestore";
+import {
+  collection,
+  doc,
+  getDocs,
+  getFirestore,
+  updateDoc,
+} from "firebase/firestore";
 import { getAuth, signInWithEmailAndPassword, signOut } from "firebase/auth";
 // import { getAnalytics } from "firebase/analytics";
 // TODO: Add SDKs for Firebase products that you want to use
@@ -33,6 +39,25 @@ export const getAllProducts = async () => {
   }
 };
 
+export const updateProductByID = async (prodId) => {
+  // try {
+  //   const productref = doc(firebaseDB, "products", prodId);
+  //   await updateDoc(productref, {
+  //     pricess: 21000,
+  //   });
+  //   console.log('updated');
+  // } catch (error) {
+  //   console.error(error);
+  // }
+};
+
+// import { doc, updateDoc } from "firebase/firestore";
+// const washingtonRef = doc(db, "cities", "DC");
+// // Set the "capital" field of the city 'DC'
+// await updateDoc(washingtonRef, {
+//   capital: true
+// });
+
 export const loginAction = async ({ email, password }) => {
   signInWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
@@ -59,7 +84,6 @@ export const logoutAction = async () => {
     });
 };
 
-
 /*
 
 rules_version = '2';
@@ -68,6 +92,17 @@ service cloud.firestore {
   match /databases/{database}/documents {
     match /{document=**} {
       allow read, write: if false;
+    }
+  }
+}
+
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Permite a los usuarios autenticados leer los documentos en la colección "products"
+    match /products/{document=**} {
+      allow read,update,write,delete: if request.auth != null;
     }
   }
 }
