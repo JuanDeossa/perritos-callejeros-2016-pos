@@ -38,7 +38,7 @@ export const LoginForm = () => {
       <button type="submit" className="button1">
         Log in
       </button>
-      <pre className="text-white">{JSON.stringify(watch(), null, 2)}</pre>
+      {/* <pre className="text-white">{JSON.stringify(watch(), null, 2)}</pre> */}
     </form>
   );
 };

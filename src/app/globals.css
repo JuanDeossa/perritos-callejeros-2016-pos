@@ -57,7 +57,7 @@ body{
     @apply font-semibold;
 }
 
-#NewProductForm input,textarea{
+#NewProductForm input,textarea,select{
     @apply rounded-md;
     @apply text-base;
     @apply font-semibold;

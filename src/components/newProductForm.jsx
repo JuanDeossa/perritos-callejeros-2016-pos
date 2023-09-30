@@ -1,7 +1,16 @@
-import React from "react";
+import { getAllCategories } from "@/firebase/services";
+import React, { useEffect, useState } from "react";
 import { useForm, Controller } from "react-hook-form";
 
 export const NewProductForm = () => {
+  const [categories, setCategories] = useState([]);
+
+  const updateCategoriesFAPI = async () => {
+    const cats = await getAllCategories();
+    console.log(cats);
+    setCategories(cats);
+  };
+
   const {
     handleSubmit,
     control,
@@ -12,6 +21,11 @@ export const NewProductForm = () => {
     // Aquí puedes enviar los datos del formulario a tu API o hacer lo que necesites con ellos
     console.log(data);
   };
+
+  useEffect(() => {
+    updateCategoriesFAPI();
+  }, []);
+
   return (
     <form
       id="NewProductForm"
@@ -68,22 +82,31 @@ export const NewProductForm = () => {
         <Controller
           name="description"
           control={control}
-          render={({ field }) => <textarea id="description" className="h-20" {...field} />}
+          render={({ field }) => (
+            <textarea id="description" className="h-20" {...field} />
+          )}
         />
       </div>
 
       <div className="flex flex-col">
-        <label htmlFor="categoryID">ID de Categoría</label>
+        <label htmlFor="categoryID">Categoría</label>
         <Controller
           name="categoryID"
           control={control}
           rules={{ required: true }}
           render={({ field }) => (
-            <input type="number" id="categoryID" {...field} />
+            <select id="categoryID" placeholder="selecciona..." {...field}>
+              <option value={""} style={{display:"none"}} />
+              {categories.map((cat) => (
+                <option key={cat.id} value={cat.id}>
+                  {cat.name}
+                </option>
+              ))}
+            </select>
           )}
         />
         {errors.categoryID && errors.categoryID.type === "required" && (
-          <p className="form-alert">El ID de categoría es requerido</p>
+          <p className="form-alert">especifica una categoría</p>
         )}
       </div>
 

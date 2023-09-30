@@ -1,4 +1,5 @@
 "use client";
+import { Loader1 } from "@/components/loader1";
 import { LoginForm } from "@/components/loginForm";
 import { NewProductForm } from "@/components/newProductForm";
 import { ProductsList } from "@/components/productsList";
@@ -19,7 +20,7 @@ export default function ProductsPage() {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (!user) {
         // Si el usuario no está autenticado, redirigirlo a la página de inicio
-        window.location.href = routes.HOME;
+        window.location.href = routes.LOGIN;
       } else {
         setLoading(false);
       }
@@ -30,6 +31,7 @@ export default function ProductsPage() {
     };
   }, []);
   return (
+    loading?<Loader1/>:
     <div className="Home flex min-h-screen flex-col items-center justify-between p-24 text-white">
       <NewProductForm/>
     </div>

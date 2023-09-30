@@ -14,7 +14,7 @@ export const getAllProducts = async () => {
 
 export const getAllCategories = async () => {
   try {
-    const data = await getDocs(collection(firebaseDB, "products"));
+    const data = await getDocs(collection(firebaseDB, "categories"));
     return data?.docs?.map((doc) => ({ ...doc?.data(), id: doc?.id }));
   } catch (error) {
     console.error(error);
