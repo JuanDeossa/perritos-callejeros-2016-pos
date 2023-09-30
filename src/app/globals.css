@@ -50,3 +50,29 @@ body{
     @apply italic;
     @apply font-bold;   @apply rounded-full;
 }
+
+#NewProductForm label{
+    @apply text-gray-300;
+    @apply text-xl;
+    @apply font-semibold;
+}
+
+#NewProductForm input,textarea{
+    @apply rounded-md;
+    @apply text-base;
+    @apply font-semibold;
+    @apply px-3 py-1;
+}
+#NewProductForm textarea{
+    @apply leading-5;
+    @apply min-h-full;
+}
+
+.form-alert{
+    @apply pt-1;
+    @apply text-cs_alert1;
+    @apply text-base;
+    @apply font-semibold;
+}
+
+

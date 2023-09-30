@@ -23,7 +23,7 @@ export const LoginPage = () => {
     };
   }, []);
   return (
-      <main className="Home flex min-h-screen flex-col items-center justify-between p-24">
+      <main className="Home flex flex-col items-center justify-between">
         <>{!loading && <LoginForm />}</>
       </main>
   );

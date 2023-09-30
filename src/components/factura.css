@@ -1,0 +1,55 @@
+/* <inline asset> */
+@charset "UTF-8"; /* /point_of_sale/static/src/scss/pos_variables_extra.scss */
+/* /web/static/lib/bootstrap/scss/_functions.scss */
+/* /web/static/lib/bootstrap/scss/_mixins.scss */
+/* /web/static/src/scss/functions.scss */
+/* /web/static/src/scss/mixins_forwardport.scss */
+/* /web/static/src/scss/bs_mixins_overrides.scss */
+/* /web/static/src/legacy/scss/utils.scss */
+/* /web_enterprise/static/src/scss/primary_variables.scss */
+/* /web/static/src/scss/primary_variables.scss */
+/* /web_enterprise/static/src/core/notifications/notifications.variables.scss */
+/* /web_enterprise/static/src/webclient/home_menu/home_menu.variables.scss */
+/* /web_enterprise/static/src/webclient/navbar/navbar.variables.scss */
+/* /web/static/src/core/avatar/avatar.variables.scss */
+/* /web/static/src/core/notifications/notification.variables.scss */
+/* /web/static/src/search/control_panel/control_panel.variables.scss */
+/* /web/static/src/search/search_panel/search_panel.variables.scss */
+/* /web/static/src/views/fields/statusbar/statusbar_field.variables.scss */
+/* /web/static/src/views/form/form.variables.scss */
+/* /web/static/src/views/kanban/kanban.variables.scss */
+/* /web/static/src/webclient/burger_menu/burger_menu.variables.scss */
+/* /web/static/src/webclient/navbar/navbar.variables.scss */
+/* /onboarding/static/src/scss/onboarding.variables.scss */
+/* /mail/static/src/core/common/primary_variables.scss */
+.o-mail-systrayFullscreenDropdownMenu {
+    height: calc(100% - 46px + 10px);
+}
+
+.pos .pos-receipt-container {
+    font-size: 0.75em;
+    text-align: center;
+    direction: ltr;
+}
+
+.pos .pos-receipt-container > div {
+    text-align: left;
+    width: 300px;
+    background-color: white;
+    margin: 20px;
+    padding: 15px;
+    font-size: 16px;
+    padding-bottom: 30px;
+    display: inline-block;
+    border: solid 1px gainsboro;
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+
+/* /mail/static/src/discuss/typing/common/primary_variables.scss */
+/* /mail/static/src/scss/variables/primary_variables.scss */
+/* /web_editor/static/src/scss/web_editor.variables.scss */
+/* /web_editor/static/src/scss/wysiwyg.variables.scss */
+/* /portal/static/src/scss/primary_variables.scss */
+/* /account/static/src/scss/variables.scss */

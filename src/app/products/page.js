@@ -1,5 +1,6 @@
-'use client'
+"use client";
 import { LoginForm } from "@/components/loginForm";
+import { NewProductForm } from "@/components/newProductForm";
 import { ProductsList } from "@/components/productsList";
 import { auth } from "@/firebase/client";
 import { routes } from "@/routes";
@@ -7,11 +8,11 @@ import { onAuthStateChanged } from "firebase/auth";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 
-
 export default function ProductsPage() {
   const [loading, setLoading] = useState(true);
 
-  const productsToShow = useSelector(state=>state.products.value)
+  const productsToShow = useSelector((state) => state.products.value);
+  console.log(productsToShow);
 
   useEffect(() => {
     // Agregar un observador para verificar el estado de autenticación del usuario
@@ -29,8 +30,8 @@ export default function ProductsPage() {
     };
   }, []);
   return (
-      <main className="Home flex min-h-screen flex-col items-center justify-between p-24 text-white">
-        <>{!loading && <pre>{JSON.stringify(productsToShow,null,2)}</pre>}</>
-      </main>
+    <div className="Home flex min-h-screen flex-col items-center justify-between p-24 text-white">
+      <NewProductForm/>
+    </div>
   );
 }

@@ -19,3 +19,11 @@ export const { setProducts } =
   productsSlice.actions;
 
 export default productsSlice.reducer;
+
+
+// const form = {
+//   name:"es un string con max 20 caracteres y minimo 5 y es required",
+//   price:"es un numero entero con un valor minimo de 100 y maximo de 500000 y es required",
+//   description:"es un string no required",
+//   categoryID:"es un numero entero y es required"
+// }
