@@ -1,6 +1,6 @@
 'use client'
 import { LoginForm } from "@/components/loginForm";
-import { auth, getAllProducts } from "@/firebase/client";
+import { auth } from "@/firebase/client";
 import { routes } from "@/routes";
 import { onAuthStateChanged } from "firebase/auth";
 import { useEffect, useState } from "react";

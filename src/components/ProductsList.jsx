@@ -1,6 +1,6 @@
 "use client";
-import { auth, getAllProducts } from "@/firebase/client";
-import React, { useEffect, useState } from "react";
+import { getAllProducts } from "@/firebase/services";
+import React, { useEffect } from "react";
 import { ProductCard } from "./productCard";
 import { useDispatch, useSelector } from "react-redux";
 import { setProducts } from "@/redux/productsSlice";
@@ -9,23 +9,24 @@ import { useSessionStorage } from "@/hooks/useSessionStorage";
 export const ProductsList = () => {
   const dispatch = useDispatch();
   const productsFromStore = useSelector((state) => state.products.value);
-  const [productsAlrready, setProductsAlrready] = useSessionStorage(
+  const [productsFSS, setProductsFSS] = useSessionStorage(
     "products",
     []
   );
   // const orden = useSelector((state) => state.orderProductsList.value);
 
   const updateAllProducts = async () => {
-    dispatch(setProducts(await getAllProducts()));
-    setProductsAlrready(await getAllProducts());
+    const productsFromAPI=await getAllProducts()
+    dispatch(setProducts(productsFromAPI));
+    setProductsFSS(productsFromAPI);
   };
   // useEffect(() => {
   //   console.log('cambio la orden');
   // }, [orden]);
   useEffect(() => {
-    const OK = productsAlrready.length;
-    if (OK) {
-      dispatch(setProducts(productsAlrready));
+    const productsAlreadyExists = productsFSS.length;
+    if (productsAlreadyExists) {
+      dispatch(setProducts(productsFSS));
     } else {
       updateAllProducts();
     }
