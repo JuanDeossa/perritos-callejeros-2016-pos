@@ -1,19 +1,19 @@
 "use client";
-import LoadingPage1 from "@/components/LoadingPage1";
-import { Modal1 } from "@/components/Modal1";
-import { OrderLayout } from "@/components/OrderLayout";
-import { ProductsList } from "@/components/ProductsList";
+import LoadingPage1, { Loader1 } from "@/components/loader1";
+import { Modal1 } from "@/components/modal1";
+import { OrderLayout } from "@/components/orderLayout";
+import { ProductsList } from "@/components/productsList";
 import { auth, logoutAction } from "@/firebase/client";
 import { routes } from "@/routes";
 import { onAuthStateChanged } from "firebase/auth";
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 
-const DashBoardPage = () => {
+export const DashBoardPage = () => {
   const [loading, setLoading] = useState(true);
   // const [showModal, setShowModal] = useState(true);
 
-  const modalStates = useSelector((state) => state.modalStates.value)
+  const modalStates = useSelector((state) => state.modalStates.value);
   // console.log(modalStates);
 
   useEffect(() => {
@@ -33,11 +33,9 @@ const DashBoardPage = () => {
   }, []);
 
   return (
-    <div className="DashBoardPage w-full h-screen p-8">
+    <div id="DashBoardPage" className="p-10">
       {loading ? (
-        <div className="w-full h-full place-content-start">
-          <LoadingPage1 />
-        </div>
+        <Loader1 />
       ) : (
         <div className="  w-full h-full flex gap-6 justify-between">
           <div className="border border-white p-6">
@@ -50,7 +48,7 @@ const DashBoardPage = () => {
           <OrderLayout />
         </div>
       )}
-      <Modal1/>
+      <Modal1 />
     </div>
   );
 };

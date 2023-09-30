@@ -1,7 +1,7 @@
 "use client";
 import { auth, getAllProducts } from "@/firebase/client";
 import React, { useEffect, useState } from "react";
-import { ProductCard } from "./ProductCard";
+import { ProductCard } from "./productCard";
 import { useDispatch, useSelector } from "react-redux";
 import { setProducts } from "@/redux/productsSlice";
 import { useSessionStorage } from "@/hooks/useSessionStorage";

@@ -1,32 +1,18 @@
 'use client'
-import LoadingPage1 from "@/components/LoadingPage1";
-import { LoginForm } from "@/components/LoginForm";
+import LoadingPage1 from "@/components/loader1";
+import { LoginForm } from "@/components/loginForm";
 import { auth, getAllProducts } from "@/firebase/client";
 import { routes } from "@/routes";
 import { onAuthStateChanged } from "firebase/auth";
 import { useEffect, useState } from "react";
+import img from '@/assets/images/perritos1.png'
+import Image from "next/image";
+import Link from "next/link";
 
 
-export default function Home() {
-  const [loading, setLoading] = useState(true);
-  useEffect(() => {
-    // Agregar un observador para verificar el estado de autenticación del usuario
-    const unsubscribe = onAuthStateChanged(auth, (user) => {
-      if (user) {
-        // Si el usuario no está autenticado, redirigirlo a la página de inicio
-        window.location.href = routes.DASHBOARD;
-      } else {
-        setLoading(false);
-      }
-    });
-    // Asegúrate de detener el observador cuando se desmonte el componente
-    return () => {
-      unsubscribe();
-    };
-  }, []);
-  return (
-      <main className="Home flex min-h-screen flex-col items-center justify-between p-24">
-        <>{!loading && <LoginForm />}</>
-      </main>
-  );
+export default function HomePage() {
+  return <div id="HomePage" className="bg-cs_orange1 w-screen h-screen flex items-center gap-3 p-12">
+    <Image src={img} alt="logo" className="rounded-2xl"/>
+    <Link className="button3" href={routes.LOGIN}>Ingresa 🐱‍🏍</Link>
+  </div>
 }

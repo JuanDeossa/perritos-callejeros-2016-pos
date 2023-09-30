@@ -31,6 +31,18 @@ body{
     @apply transition;
     @apply duration-300;
 }
+.button3 {
+    @apply text-3xl;
+    @apply bg-gray-900;
+    @apply text-white;
+    @apply normal-case;
+    @apply font-semibold;
+    @apply p-4;
+    @apply rounded-full;
+    @apply hover:opacity-90;
+    @apply transition;
+    @apply duration-300;
+}
 
 .white-title{
     @apply text-white;

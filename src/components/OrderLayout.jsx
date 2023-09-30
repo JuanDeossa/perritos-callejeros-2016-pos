@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 import { useSelector } from "react-redux";
-import { OrderProdcutCard } from "./OrderProdcutCard";
+import { OrderProdcutCard } from "./orderProdcutCard";
 
 export const OrderLayout = () => {
   const carProdcts2 = useSelector((state) => state.orderProductsList.value);
