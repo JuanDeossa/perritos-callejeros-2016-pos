@@ -1,4 +1,4 @@
-import { getAllCategories } from "@/firebase/services";
+import { addNewProduct, getAllCategories } from "@/firebase/services";
 import React, { useEffect, useState } from "react";
 import { useForm, Controller } from "react-hook-form";
 
@@ -7,7 +7,6 @@ export const NewProductForm = () => {
 
   const updateCategoriesFAPI = async () => {
     const cats = await getAllCategories();
-    console.log(cats);
     setCategories(cats);
   };
 
@@ -19,7 +18,13 @@ export const NewProductForm = () => {
 
   const onSubmit = (data) => {
     // Aquí puedes enviar los datos del formulario a tu API o hacer lo que necesites con ellos
-    console.log(data);
+    // console.log(data);
+    addNewProduct({
+      name:data.name,
+      price:data.price,
+      description:data.description,
+      category_id:data.categoryID,
+    })
   };
 
   useEffect(() => {
