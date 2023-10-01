@@ -1,9 +1,7 @@
 //Servicios tipo get
 
-import { addDoc, collection, getDocs } from "firebase/firestore";
+import { addDoc, collection, deleteDoc, doc, getDocs } from "firebase/firestore";
 import { firebaseDB } from "./client";
-import { useDispatch } from "react-redux";
-import { setProducts } from "@/redux/productsSlice";
 
 export const getAllProducts = async () => {
   try {
@@ -37,18 +35,21 @@ export const addNewProduct = async ({
       description,
       category_id,
       logo,
-    })
+    });
     if (res.id) {
-      return true
+      return true;
     }
   } catch (error) {
     console.error("addNewProduct_error: ", error);
   }
 };
 
-// export const RefreshProducts=async()=>{
-//   const dispatch=useDispatch()
-//   const productListFFB=await getAllProducts()
-//   sessionStorage.removeItem("products")
-//   dispatch(setProducts(productListFFB))
-// }
+export const deleteProductByID = async (id) => {
+  try {
+    await deleteDoc(doc(firebaseDB, "products", id));
+    return true
+  } catch (error) {
+    console.error("Error al eliminar el documento: ", error);
+    return false
+  }
+};

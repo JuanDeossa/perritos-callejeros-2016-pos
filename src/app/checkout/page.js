@@ -1,5 +1,5 @@
 'use client'
-import { ProductsList } from '@/components/productsList'
+import { ProductsList } from '@/components/ProductsList'
 import { auth, logoutAction } from '@/firebase/client'
 import { routes } from '@/routes'
 import { onAuthStateChanged } from 'firebase/auth'

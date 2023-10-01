@@ -17,7 +17,14 @@ module.exports = {
         cs_gray1:'#161616',
         cs_orange1:'#dd8903',
         cs_tr1:'#252323d9',
-        cs_alert1:'#f59d9d'
+        cs_alert1:'#f59d9d',
+        t1:{
+          "gray-100":"#343838",
+          "blue-100":"#00DFFC",
+          "blue-200":"#00B4CC",
+          "blue-300":"#008C9E",
+          "blue-400":"#005F6B",
+        }
       }
     },
   },

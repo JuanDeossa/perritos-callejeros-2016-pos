@@ -49,7 +49,7 @@ export const NewProductForm = () => {
   const onSubmit = async (data) => {
     // Aquí puedes enviar los datos del formulario a tu API o hacer lo que necesites con ellos
     // console.log(data);
-    data.price = parseFloat(data.price).toLocaleString('es-ES');
+    // data.price = parseFloat(data.price).toLocaleString('es-ES');
     setLoading(true);
     const productCreated = await addNewProduct({
       name: data.name,

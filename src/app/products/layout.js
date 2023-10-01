@@ -1,7 +1,9 @@
+import { LayoutTypeA } from "@/components/layoutTypeA";
+
 export default function ProductLayout({ children }) {
   return (
-    <div id="ProductLayout">
+    <LayoutTypeA id="ProductLayout">
       <div>{children}</div>
-    </div>
+    </LayoutTypeA>
   );
 }

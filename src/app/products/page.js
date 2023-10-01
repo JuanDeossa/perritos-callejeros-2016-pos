@@ -2,9 +2,10 @@
 import { Loader1 } from "@/components/loader1";
 import { LoginForm } from "@/components/loginForm";
 import { NewProductForm } from "@/components/newProductForm";
-import { ProductsList } from "@/components/productsList";
+import { ProductsList } from "@/components/ProductsList";
 import { ProductsList2 } from "@/components/productsList2";
 import { auth } from "@/firebase/client";
+import { useRefreshProductsListFromFB } from "@/hooks/useRefreshProductsListFromFB";
 import { routes } from "@/routes";
 import { onAuthStateChanged } from "firebase/auth";
 import { useEffect, useState } from "react";
@@ -12,6 +13,8 @@ import { useSelector } from "react-redux";
 
 export default function ProductsPage() {
   const [loading, setLoading] = useState(true);
+
+  // useRefreshProductsListFromFB()
 
   const productsToShow = useSelector((state) => state.products.value);
   // console.log(productsToShow);
@@ -33,7 +36,7 @@ export default function ProductsPage() {
   }, []);
   return (
     loading?<Loader1/>:
-    <div className="Home flex min-h-screen gap-6 p-24 text-white">
+    <div className="Home flex min-h-screen gap-6 pt-24 px-4 text-white">
       <NewProductForm/>
       <ProductsList2/>
     </div>

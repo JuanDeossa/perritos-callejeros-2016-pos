@@ -2,17 +2,19 @@
 import LoadingPage1, { Loader1 } from "@/components/loader1";
 import { Modal1 } from "@/components/modal1";
 import { OrderLayout } from "@/components/orderLayout";
-import { ProductsList } from "@/components/productsList";
+import { ProductsList } from "@/components/ProductsList";
 import { auth } from "@/firebase/client";
 import { logoutAction } from "@/firebase/auth";
 import { routes } from "@/routes";
 import { onAuthStateChanged } from "firebase/auth";
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
+import { useRefreshProductsListFromFB } from "@/hooks/useRefreshProductsListFromFB";
 
 export const DashBoardPage = () => {
   const [loading, setLoading] = useState(true);
   // const [showModal, setShowModal] = useState(true);
+
 
   const modalStates = useSelector((state) => state.modalStates.value);
   // console.log(modalStates);
