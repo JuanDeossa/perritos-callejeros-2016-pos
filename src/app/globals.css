@@ -65,7 +65,7 @@ body{
 }
 #NewProductForm textarea{
     @apply leading-5;
-    @apply min-h-full;
+    @apply h-12;
 }
 
 .form-alert{

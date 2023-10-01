@@ -34,7 +34,13 @@ export const DashBoardPage = () => {
   }, []);
 
   return (
-    <div id="DashBoardPage" className="p-10">
+    <div id="DashBoardPage" className="px-6">
+      <button
+        className="button2 h-12 absolute bottom-4 right-60"
+        onClick={logoutAction}
+      >
+        Log Out
+      </button>
       {loading ? (
         <Loader1 />
       ) : (
@@ -42,9 +48,6 @@ export const DashBoardPage = () => {
           <div className="border border-white p-6">
             <h1 className="white-title">Productos</h1>
             <ProductsList />
-            <button className="button2" onClick={logoutAction}>
-              Log Out
-            </button>
           </div>
           <OrderLayout />
         </div>

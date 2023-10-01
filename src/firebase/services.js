@@ -2,6 +2,8 @@
 
 import { addDoc, collection, getDocs } from "firebase/firestore";
 import { firebaseDB } from "./client";
+import { useDispatch } from "react-redux";
+import { setProducts } from "@/redux/productsSlice";
 
 export const getAllProducts = async () => {
   try {
@@ -36,7 +38,17 @@ export const addNewProduct = async ({
       category_id,
       logo,
     })
+    if (res.id) {
+      return true
+    }
   } catch (error) {
     console.error("addNewProduct_error: ", error);
   }
 };
+
+// export const RefreshProducts=async()=>{
+//   const dispatch=useDispatch()
+//   const productListFFB=await getAllProducts()
+//   sessionStorage.removeItem("products")
+//   dispatch(setProducts(productListFFB))
+// }

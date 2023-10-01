@@ -5,8 +5,9 @@ import { ProductCard } from "./productCard";
 import { useDispatch, useSelector } from "react-redux";
 import { setProducts } from "@/redux/productsSlice";
 import { useSessionStorage } from "@/hooks/useSessionStorage";
+import { ProductCar2, ProductCard2 } from "./productCard2";
 
-export const ProductsList = () => {
+export const ProductsList2 = () => {
   const dispatch = useDispatch();
   const productsFromStore = useSelector((state) => state.products.value);
   const [productsFSS, setProductsFSS] = useSessionStorage(
@@ -32,9 +33,9 @@ export const ProductsList = () => {
     console.log("Cambio la tienda");
   }, [productsFromStore]);
   return (
-    <div id="ProductsList" className="flex flex-col gap-5 my-8">
+    <div id="ProductsList" className="flex flex-wrap gap-5 h-fit">
       {productsFromStore?.map((product) => (
-        <ProductCard key={product?.id} product={product} />
+        <ProductCard2 key={product?.id} product={product} />
       ))}
     </div>
   );
