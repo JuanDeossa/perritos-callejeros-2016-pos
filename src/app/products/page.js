@@ -1,6 +1,7 @@
 "use client";
 import { Loader1 } from "@/components/loader1";
 import { LoginForm } from "@/components/loginForm";
+import { Modal1 } from "@/components/Modal1";
 import { NewProductForm } from "@/components/newProductForm";
 import { ProductsList } from "@/components/ProductsList";
 import { ProductsList2 } from "@/components/productsList2";
@@ -39,6 +40,7 @@ export default function ProductsPage() {
     <div className="Home flex min-h-screen gap-6 pt-24 px-4 text-white">
       <NewProductForm/>
       <ProductsList2/>
+      <Modal1/>
     </div>
   );
 }

@@ -4,43 +4,23 @@ import { setProducts } from "@/redux/productsSlice";
 import React from "react";
 import { useDispatch } from "react-redux";
 import { ToastContainer, toast } from "react-toastify";
+import { Modal1 } from "./Modal1";
+import { openModal } from "@/redux/modalStatesSlice";
 
 export const ProductCard2 = ({ product }) => {
   const dispatch = useDispatch();
 
   const handleDelete = async (id) => {
-    const productDeleted = await deleteProductByID(id);
-    if (productDeleted) {
-      successNotify();
-      dispatch(setProducts(await getAllProducts()));
-      sessionStorage.removeItem("products");
-    } else {
-      errorNotify();
-    }
+    dispatch(openModal({ modalKey: "openModal1", productID: id,name:product.name }));
+    // const productDeleted = await deleteProductByID(id);
+    // if (productDeleted) {
+    //   successNotify();
+    //   dispatch(setProducts(await getAllProducts()));
+    //   sessionStorage.removeItem("products");
+    // } else {
+    //   errorNotify();
+    // }
   };
-
-  const successNotify = () =>
-    toast.success("Producto eliminado con éxito!", {
-      position: "top-left",
-      autoClose: 2500,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "colored",
-    });
-  const errorNotify = () =>
-    toast.error("No fue posible eliminar el producto", {
-      position: "top-left",
-      autoClose: 2500,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "colored",
-    });
 
   return (
     <div

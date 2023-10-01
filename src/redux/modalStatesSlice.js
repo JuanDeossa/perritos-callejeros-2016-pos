@@ -2,9 +2,21 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   value: {
-    openModal1: false,
-    openModal2: false,
-    openModal3: false,
+    openModal1: {
+      isOpen:false,
+      productID:null,
+      name:"",
+    },
+    openModal2: {
+      isOpen:false,
+      productID:null,
+      name:"",
+    },
+    openModal3: {
+      isOpen:false,
+      productID:null,
+      name:"",
+    },
   },
 };
 
@@ -17,7 +29,12 @@ export const modalStatesSlice = createSlice({
       console.log(modal);
       state.value = {
         ...state.value,
-        [modal]: true,
+        [modal.modalKey]: {
+          ...state.value[modal.modalKey],
+          isOpen:true,
+          productID:modal.productID,
+          name:modal.name,
+        },
       };
     },
     closeModal: (state, action) => {

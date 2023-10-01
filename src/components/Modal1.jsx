@@ -1,15 +1,57 @@
+import { deleteProductByID, getAllProducts } from "@/firebase/services";
 import { closeModal } from "@/redux/modalStatesSlice";
+import { setProducts } from "@/redux/productsSlice";
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { toast } from "react-toastify";
 
 export const Modal1 = () => {
 
-  const open=useSelector(state=>state.modalStates.value.openModal1)
+  const modalProps=useSelector(state=>state.modalStates.value.openModal1)
   const dispatch=useDispatch()
+
+  const handleClose=()=>{
+    dispatch(closeModal('openModal1'))
+  }
+
+  const successNotify = () =>
+  toast.success("Producto eliminado con éxito!", {
+    position: "top-left",
+    autoClose: 2500,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    theme: "colored",
+  });
+const errorNotify = () =>
+  toast.error("No fue posible eliminar el producto", {
+    position: "top-left",
+    autoClose: 2500,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    theme: "colored",
+  });
+
+  const handleDelete=async()=>{
+    const productDeleted = await deleteProductByID(modalProps.productID);
+    if (productDeleted) {
+      successNotify();
+      dispatch(setProducts(await getAllProducts()));
+      sessionStorage.removeItem("products");
+      handleClose()
+    } else {
+      errorNotify();
+    }
+  }
 
   return (
     <div>
-      {open && (
+      {modalProps.isOpen && (
         <div
           id="popup-modal"
           tabindex="-1"
@@ -21,7 +63,7 @@ export const Modal1 = () => {
                 type="button"
                 className="absolute top-3 right-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ml-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
                 data-modal-hide="popup-modal"
-                onClick={()=>dispatch(closeModal('openModal1'))}
+                onClick={handleClose}
               >
                 <svg
                   className="w-3 h-3"
@@ -60,17 +102,18 @@ export const Modal1 = () => {
                   Are you sure you want to delete this product? <div Modal1=""></div>
                 </h3>
                 <button
+                  onClick={handleDelete}
                   data-modal-hide="popup-modal"
                   type="button"
                   className="text-white bg-red-600 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2"
                 >
-                  { }
+                  {`Yes, Delete: ${modalProps.name}`}
                 </button>
                 <button
                   data-modal-hide="popup-modal"
                   type="button"
                   className="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600"
-                  onClick={()=>dispatch(closeModal('openModal1'))}
+                  onClick={handleClose}
                 >
                   No, cancel
                 </button>
