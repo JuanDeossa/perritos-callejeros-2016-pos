@@ -11,15 +11,20 @@ export const ProductCard2 = ({ product }) => {
   const dispatch = useDispatch();
 
   const handleDelete = async (id) => {
-    dispatch(openModal({ modalKey: "openModal1", productID: id,name:product.name }));
-    // const productDeleted = await deleteProductByID(id);
-    // if (productDeleted) {
-    //   successNotify();
-    //   dispatch(setProducts(await getAllProducts()));
-    //   sessionStorage.removeItem("products");
-    // } else {
-    //   errorNotify();
-    // }
+    dispatch(
+      openModal({ modalKey: "openModal1", productID: id, name: product.name })
+    );
+  };
+  const handleEdit = async (id) => {
+    dispatch(
+      openModal({
+        modalKey: "openModal2",
+        productID: id,
+        name: product.name,
+        price:product.price,
+        description: product.description,
+      })
+    );
   };
 
   return (
@@ -38,7 +43,9 @@ export const ProductCard2 = ({ product }) => {
       <span className="w-12 h-12 rounded-full bg-slate-800 text-4xl grid place-content-center">
         <span>{product.logo}</span>
       </span>
-      <span className="absolute bottom-0 right-0 w-8 h-8 rounded-ee-md rounded-ss-md bg-t1-gray-100 text-xl grid place-content-center hover:opacity-75">
+      <span
+        onClick={() => handleEdit(product.id)}
+        className="absolute bottom-0 right-0 w-8 h-8 rounded-ee-md rounded-ss-md bg-t1-gray-100 text-xl grid place-content-center hover:opacity-75">
         <span>✏️</span>
       </span>
       <span

@@ -1,6 +1,6 @@
 //Servicios tipo get
 
-import { addDoc, collection, deleteDoc, doc, getDocs } from "firebase/firestore";
+import { addDoc, collection, deleteDoc, doc, getDocs, updateDoc } from "firebase/firestore";
 import { firebaseDB } from "./client";
 
 export const getAllProducts = async () => {
@@ -53,3 +53,19 @@ export const deleteProductByID = async (id) => {
     return false
   }
 };
+
+export const editProductByID = async ({id,data}) => {
+  try {
+    await updateDoc(doc(firebaseDB, "products", id), {
+      name: data.name,
+      price: data.price,
+      description: data.description,
+      category_id: data.category_id,
+    }).then(res=>console.log(res))
+    return true
+  } catch (error) {
+    console.error("Error al eliminar el documento: ", error);
+    return false
+  }
+};
+

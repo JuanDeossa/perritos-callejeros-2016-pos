@@ -2,6 +2,7 @@
 import { Loader1 } from "@/components/loader1";
 import { LoginForm } from "@/components/loginForm";
 import { Modal1 } from "@/components/Modal1";
+import { Modal2 } from "@/components/Modal2";
 import { NewProductForm } from "@/components/newProductForm";
 import { ProductsList } from "@/components/ProductsList";
 import { ProductsList2 } from "@/components/productsList2";
@@ -41,6 +42,7 @@ export default function ProductsPage() {
       <NewProductForm/>
       <ProductsList2/>
       <Modal1/>
+      <Modal2/>
     </div>
   );
 }

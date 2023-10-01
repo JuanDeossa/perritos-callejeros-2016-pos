@@ -26,7 +26,7 @@ export const modalStatesSlice = createSlice({
   reducers: {
     openModal: (state, action) => {
       const { payload: modal } = action;
-      console.log(modal);
+      // console.log(modal);
       state.value = {
         ...state.value,
         [modal.modalKey]: {
@@ -34,6 +34,8 @@ export const modalStatesSlice = createSlice({
           isOpen:true,
           productID:modal.productID,
           name:modal.name,
+          price:modal.price,
+          description:modal.description,
         },
       };
     },
