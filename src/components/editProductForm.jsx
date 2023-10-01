@@ -13,7 +13,7 @@ import { useDispatch } from "react-redux";
 import { setProducts } from "@/redux/productsSlice";
 import { closeModal } from "@/redux/modalStatesSlice";
 
-export const EditProductForm = ({ name, price, description, id }) => {
+export const EditProductForm = ({ name, price, description, categoryID,id }) => {
   const [categories, setCategories] = useState([]);
   const [loading, setLoading] = useState(false);
   const dispatch = useDispatch();
@@ -54,6 +54,7 @@ export const EditProductForm = ({ name, price, description, id }) => {
       name: name,
       price: price,
       description: description,
+      categoryID: categoryID,
     },
   });
 
@@ -89,10 +90,10 @@ export const EditProductForm = ({ name, price, description, id }) => {
     <form
       id="NewProductForm"
       onSubmit={handleSubmit(onSubmit)}
-      className="bg-inherit text-black p-6 rounded-lg shadow-lg flex flex-col gap-4 max-w-sm h-fit"
+      className="bg-inherit text-black p-6 rounded-lg flex flex-col gap-4 max-w-sm h-fit"
     >
-      <h4 className="font-bold text-2xl text-gray-100 border-b-2 mx-auto w-4/5 text-center pb-2">
-        Agrega un nuevo producto
+      <h4 className="font-bold text-2xl text-gray-100 border-b-2 mx-auto w-full text-center pb-2">
+        Edita el producto
       </h4>
       <div className="flex flex-col">
         <label htmlFor="name">Nombre del Producto</label>
@@ -153,7 +154,7 @@ export const EditProductForm = ({ name, price, description, id }) => {
           rules={{ required: true }}
           render={({ field }) => (
             <select id="categoryID" placeholder="selecciona..." {...field}>
-              <option value={""} style={{ display: "none" }} />
+              {/* <option value={""} style={{ display: "none" }} /> */}
               {categories.map((cat) => (
                 <option key={cat.id} value={cat.id}>
                   {cat.name}

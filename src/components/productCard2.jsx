@@ -1,10 +1,6 @@
-import { deleteProductByID, getAllProducts } from "@/firebase/services";
-import { useRefreshProductsListFromFB } from "@/hooks/useRefreshProductsListFromFB";
-import { setProducts } from "@/redux/productsSlice";
 import React from "react";
 import { useDispatch } from "react-redux";
-import { ToastContainer, toast } from "react-toastify";
-import { Modal1 } from "./Modal1";
+import { ToastContainer} from "react-toastify";
 import { openModal } from "@/redux/modalStatesSlice";
 
 export const ProductCard2 = ({ product }) => {
@@ -12,17 +8,23 @@ export const ProductCard2 = ({ product }) => {
 
   const handleDelete = async (id) => {
     dispatch(
-      openModal({ modalKey: "openModal1", productID: id, name: product.name })
+      openModal({
+        modalKey: "openModal1",
+        productID: id,
+        name: product.name,
+      })
     );
   };
-  const handleEdit = async (id) => {
+  const handleEdit = async (productObj) => {
+    // console.log("productObj: ",productObj);
     dispatch(
       openModal({
         modalKey: "openModal2",
-        productID: id,
-        name: product.name,
-        price:product.price,
-        description: product.description,
+        productID: productObj.id,
+        name: productObj.name,
+        price: productObj.price,
+        description: productObj.description,
+        category: productObj.category_id,
       })
     );
   };
@@ -44,8 +46,9 @@ export const ProductCard2 = ({ product }) => {
         <span>{product.logo}</span>
       </span>
       <span
-        onClick={() => handleEdit(product.id)}
-        className="absolute bottom-0 right-0 w-8 h-8 rounded-ee-md rounded-ss-md bg-t1-gray-100 text-xl grid place-content-center hover:opacity-75">
+        onClick={() => handleEdit(product)}
+        className="absolute bottom-0 right-0 w-8 h-8 rounded-ee-md rounded-ss-md bg-t1-gray-100 text-xl grid place-content-center hover:opacity-75"
+      >
         <span>✏️</span>
       </span>
       <span
