@@ -24,7 +24,14 @@ module.exports = {
           "blue-200":"#00B4CC",
           "blue-300":"#008C9E",
           "blue-400":"#005F6B",
+          "red-100":"#f92f60",
+          "red-200":"#f04141",
         }
+      },
+      padding:{
+        headerH:16,
+        sideNavWB:200,
+        sideNavWL:80,
       }
     },
   },

@@ -1,12 +1,12 @@
 import React from "react";
 
-export const Loader1 = ({
+export const MainLoader = ({
   width = "200px",
   height = "200px",
-  fill = "#dd8903",
+  fill = "#00B4CC",
 }) => {
   return (
-    <div className="bg-transparent fixed top-0 left-0 w-screen h-screen grid place-content-center">
+    <div className="MainLoader bg-transparent fixed top-0 left-0 w-screen h-screen grid place-content-center">
       <div
         className={`flex items-center justify-center rounded-lg dark:bg-gray-800 dark:border-gray-700`}
         style={{ width, height }}

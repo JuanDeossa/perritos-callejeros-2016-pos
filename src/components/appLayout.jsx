@@ -1,22 +1,22 @@
-"use client";
-import { MainLoader } from "@/components/mainLoader";
-import { LoginForm } from "@/components/loginForm";
-import { auth } from "@/firebase/client";
+"use client"
 import { routes } from "@/routes";
+import React, { useEffect, useState } from "react";
+import { AppHeader } from "./appHeader";
+import { SideBar } from "./sideBar";
+import { MainLoader } from "./mainLoader";
 import { onAuthStateChanged } from "firebase/auth";
-import { useEffect, useState } from "react";
-import img from "@/assets/images/perritos1.png";
-import Image from "next/image";
+import { auth } from "@/firebase/client";
 
-export default function HomePage() {
+export const AppLayout = ({ children }) => {
   const [loading, setLoading] = useState(true);
+  const [open, setOpen] = useState(true);
 
   useEffect(() => {
     // Agregar un observador para verificar el estado de autenticación del usuario
     const unsubscribe = onAuthStateChanged(auth, (user) => {
-      if (user) {
+      if (!user) {
         // Si el usuario no está autenticado, redirigirlo a la página de inicio
-        window.location.href = routes.APP;
+        window.location.href = routes.HOME;
       } else {
         setLoading(false);
       }
@@ -28,17 +28,18 @@ export default function HomePage() {
   }, []);
 
   return (
-    <div id="HomePage">
+    <div className="AppLayout w-full min-h-screen bg-gray-700">
       {loading ? (
-        <MainLoader />
+        <MainLoader/>
       ) : (
-        <div className="bg-cs_gray1 w-screen h-screen flex items-center justify-center gap-3 p-12">
-          <Image width={500} src={img} alt="logo" className="rounded-2xl" />
-          <div className="mb-36">
-            <LoginForm />
+        <div className="">
+          <AppHeader/>
+          <div className={`flex pt-16`}>
+            <SideBar open={open} setOpen={setOpen}/>
+            {children}
           </div>
         </div>
       )}
     </div>
   );
-}
+};

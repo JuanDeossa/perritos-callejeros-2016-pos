@@ -9,7 +9,7 @@ body{
 
 .button1 {
     @apply w-full;
-    @apply bg-cs_orange1;
+    @apply bg-t1-blue-300;
     @apply text-white;
     @apply italic;
     @apply font-semibold;
