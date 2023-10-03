@@ -3,7 +3,7 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { EditProductForm } from "./editProductForm";
 
-export const Modal2 = () => {
+export const EditProductModal = () => {
   const modalProps = useSelector((state) => state.modalStates.value.openModal2);
   const dispatch = useDispatch();
 

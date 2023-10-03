@@ -1,3 +1,5 @@
+import { addNewProduct } from "./services"
+
 const arr=[
   {
     name:"perrito1",
@@ -74,5 +76,7 @@ const arr=[
 ]
 
 export const migrateProducts=()=>{
-  arr.forEach((prod)=>console.log(prod))
+  // arr.forEach((prod)=>{
+  //   addNewProduct(prod)
+  // })
 }

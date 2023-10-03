@@ -88,9 +88,8 @@ export const EditProductForm = ({ name, price, description, categoryID,id }) => 
 
   return (
     <form
-      id="NewProductForm"
       onSubmit={handleSubmit(onSubmit)}
-      className="bg-inherit text-black p-6 rounded-lg flex flex-col gap-4 max-w-sm h-fit"
+      className="NewProductForm bg-inherit text-black p-6 rounded-lg flex flex-col gap-4 max-w-sm h-fit"
     >
       <h4 className="font-bold text-2xl text-gray-100 border-b-2 mx-auto w-full text-center pb-2">
         Edita el producto

@@ -2,10 +2,10 @@
 import { MainAppPage } from "@/subPages/mainAppPage";
 import { NotFountPage } from "@/subPages/notFountPage";
 import { useSelector } from "react-redux";
-import { DashBoardPage } from "@/components/dashBoardPage";
+import { DashBoardPage } from "@/subPages/dashBoardPage";
 import { ProductsPage } from "@/subPages/productsPage";
 
-export const AplicationPage = ({ open }) => {
+export const AplicationPage = () => {
   const { pageID, sideNavOpen } = useSelector(
     (state) => state.currentPage.value
   );
@@ -19,7 +19,7 @@ export const AplicationPage = ({ open }) => {
   return (
     <div
       id="AplicationPage"
-      className={`w-full pt-8 pl-${sideNavOpen ? "sideNavWB" : "sideNavWL"}`}
+      className={`pl- w-full pt-8 ${sideNavOpen ? "pl-sideNavWB" : "pl-sideNavWL"} duration-300`}
     >
       {pagesObj[pageID] || <NotFountPage />}
     </div>

@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import LogOutIcon from "@/assets/icons/logout.svg";
 import UserIcon from "@/assets/icons/user-circle.svg";
@@ -12,25 +12,28 @@ export const DropDown1 = () => {
     {
       label: "Logout",
       icon: <LogOutIcon />,
-      action: () => {logoutAction()},
+      action: () => {
+        logoutAction();
+      },
     },
     {
       label: "ususarios",
       icon: <UserIcon />,
-      action: () => {migrateProducts()},
+      action: () => {
+        // migrateProducts();
+      },
     },
   ];
+
   return (
-    <div data-dial-init className="">
+    <div data-dial-init className="DropDown1">
       <button
         onClick={() => setOpen((prev) => !prev)}
-        onMouseEnter={() => setOpen(true)}
-        // onMouseLeave={() => setOpen(false)}
         type="button"
         data-dial-toggle="speed-dial-menu-dropdown"
         aria-controls="speed-dial-menu-dropdown"
         aria-expanded="false"
-        className="flex items-center justify-center ml-auto text-white  rounded-xl w-10 h-10 hover:bg-t1-blue-200 dark:bg-blue-600 dark:hover:bg-blue-700  focus:outline-none dark:focus:ring-blue-800"
+        className="DropDown1-button flex items-center justify-center ml-auto text-white  rounded-xl w-10 h-10 hover:bg-t1-blue-200 dark:bg-blue-600 dark:hover:bg-blue-700  focus:outline-none dark:focus:ring-blue-800"
       >
         <svg
           className="w-6 h-6"
@@ -47,8 +50,7 @@ export const DropDown1 = () => {
         <div
           id="speed-dial-menu-dropdown"
           className="absolute right-24 top-2 flex flex-col justify-end py-1 mb-4 space-y-2 bg-white border border-gray-100 rounded-lg shadow-sm dark:border-gray-600 dark:bg-gray-700"
-          onMouseEnter={() => setOpen(true)}
-          onMouseLeave={() => setOpen(false)}
+          onMouseLeave={() => setTimeout(()=>setOpen(false),200)}
         >
           <ul className="text-sm text-gray-500 dark:text-gray-300">
             {options.map((option) => (

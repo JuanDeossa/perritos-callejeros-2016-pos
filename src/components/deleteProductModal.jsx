@@ -5,7 +5,7 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
 
-export const Modal1 = () => {
+export const DeleteProductModal = () => {
 
   const modalProps=useSelector(state=>state.modalStates.value.openModal1)
   const dispatch=useDispatch()
