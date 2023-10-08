@@ -10,6 +10,7 @@ export const DropDown1 = () => {
   const [open, setOpen] = useState(false);
   const options = [
     {
+      id: 1,
       label: "Logout",
       icon: <LogOutIcon />,
       action: () => {
@@ -17,6 +18,7 @@ export const DropDown1 = () => {
       },
     },
     {
+      id: 2,
       label: "ususarios",
       icon: <UserIcon />,
       action: () => {
@@ -50,12 +52,12 @@ export const DropDown1 = () => {
         <div
           id="speed-dial-menu-dropdown"
           className="absolute right-24 top-2 flex flex-col justify-end py-1 mb-4 space-y-2 bg-white border border-gray-100 rounded-lg shadow-sm dark:border-gray-600 dark:bg-gray-700"
-          onMouseLeave={() => setTimeout(()=>setOpen(false),200)}
+          onMouseLeave={() => setTimeout(() => setOpen(false), 200)}
         >
           <ul className="text-sm text-gray-500 dark:text-gray-300">
             {options.map((option) => (
               <li
-                key={option.id}
+                key={option?.id}
                 className="flex items-center px-5 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 hover:text-gray-900 dark:hover:text-white cursor-pointer gap-2"
                 onClick={option.action}
               >

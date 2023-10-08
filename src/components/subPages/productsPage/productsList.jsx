@@ -1,14 +1,13 @@
 "use client";
 import { getAllProducts } from "@/firebase/services";
 import React, { useEffect } from "react";
-import { ProductCard } from "../../productCard";
 import { useDispatch, useSelector } from "react-redux";
 import { setProducts } from "@/redux/productsSlice";
 import { useSessionStorage } from "@/hooks/useSessionStorage";
-import { PruebaCard } from "../../common/pruebaCard";
+import { ProductCard } from "../../common/productCard";
 import { openModal } from "@/redux/modalStatesSlice";
 
-export const ProductsList2 = () => {
+export const ProductsList = () => {
   const dispatch = useDispatch();
   const productsFromStore = useSelector((state) => state.products.value);
   const [productsFSS, setProductsFSS] = useSessionStorage(
@@ -36,9 +35,9 @@ export const ProductsList2 = () => {
   return (
     <div className="flex flex-wrap gap-5 h-fit">
       {productsFromStore?.map((product) => (
-        <PruebaCard key={product?.id} product={product}>
+        <ProductCard key={product?.id} product={product}>
           <ProductCardUpdateButtons product={product}/>
-        </PruebaCard>
+        </ProductCard>
       ))}
     </div>
   );

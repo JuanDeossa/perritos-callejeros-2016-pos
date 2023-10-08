@@ -7,12 +7,12 @@ const placeHolderImage =
 import { addNew } from "@/redux/orderDataSlice";
 import { useDispatch } from "react-redux";
 
-export const PruebaCard = ({ product, children }) => {
+export const ProductCard = ({ product, children }) => {
   const dispatch = useDispatch();
 
   return (
     <div
-      className="PruebaCard w-32 max-w-sm bg-jt1-gray3 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 p-2 active:opacity-75 hover:opacity-90 cursor-pointer"
+      className="ProductCard w-32 max-w-sm bg-jt1-gray3 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 p-2 active:opacity-75 hover:opacity-90 cursor-pointer"
       onClick={() => {
         dispatch(addNew(product));
         // dispatch(updateTotal());

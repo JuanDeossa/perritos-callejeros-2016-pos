@@ -1,6 +1,6 @@
 import { deleteItem } from "@/redux/orderDataSlice";
-import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import './shoppingCart.css'
 
 export const ShoppingCart = () => {
   const { productsList, total } = useSelector((state) => state.orderData.value);
