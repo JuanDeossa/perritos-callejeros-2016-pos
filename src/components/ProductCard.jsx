@@ -6,11 +6,11 @@ import { useDispatch } from "react-redux";
 export const ProductCard = ({ product }) => {
   const dispatch=useDispatch()
   return (
-    <div 
-      className="flex bg-slate-400 rounded-lg py justify-between items-center cursor-pointer text-gray-800 font-semibold px-7 active:opacity-75"
+    <div
+      className=""
       onClick={()=>dispatch(addNew(product))}
     >
-      <div className="flex flex-col flex-wrap ">
+      <div className="ProductCard">
         <span className="text-3xl opacity-100">{product?.name}</span>
         <span className="text-lg opacity-100 leading-5">
           valor: ${product?.price}

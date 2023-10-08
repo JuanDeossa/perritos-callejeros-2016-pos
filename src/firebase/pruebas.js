@@ -1,82 +1,124 @@
-import { addNewProduct } from "./services"
+import { addNewProduct } from "./services";
 
-const arr=[
+const arr = [
   {
-    name:"perrito1",
-    price:4000,
-    description:"perrito1 description",
-    category_id:"lhRODYPxFdthKTWtSvsq",
+    name: "Perrito",
+    price: 4000,
+    description: "perrito1 description",
+    category_id: "lhRODYPxFdthKTWtSvsq",
   },
   {
-    name:"perrito2",
-    price:4000,
-    description:"perrito1 description",
-    category_id:"lhRODYPxFdthKTWtSvsq",
+    name: "Queso",
+    price: 4000,
+    description: "perrito1 description",
+    category_id: "SI0E2rLM5GUKlOOg7U4G",
   },
   {
-    name:"perrito3",
-    price:4000,
-    description:"perrito1 description",
-    category_id:"lhRODYPxFdthKTWtSvsq",
+    name: "Tocineta",
+    price: 4000,
+    description: "perrito1 description",
+    category_id: "SI0E2rLM5GUKlOOg7U4G",
   },
   {
-    name:"perrito4",
-    price:4000,
-    description:"perrito1 description",
-    category_id:"lhRODYPxFdthKTWtSvsq",
+    name: "Salchicha",
+    price: 4000,
+    description: "perrito1 description",
+    category_id: "SI0E2rLM5GUKlOOg7U4G",
   },
   {
-    name:"perrito5",
-    price:4000,
-    description:"perrito1 description",
-    category_id:"lhRODYPxFdthKTWtSvsq",
+    name: "Coca cola original",
+    price: 4000,
+    description: "perrito1 description",
+    category_id: "kg9UEnhvCSzhWdiU6PGp",
   },
   {
-    name:"perrito6",
-    price:4000,
-    description:"perrito1 description",
-    category_id:"lhRODYPxFdthKTWtSvsq",
+    name: "Coca cola sin Azucar",
+    price: 4000,
+    description: "perrito1 description",
+    category_id: "kg9UEnhvCSzhWdiU6PGp",
   },
   {
-    name:"perrito7",
-    price:4000,
-    description:"perrito1 description",
-    category_id:"lhRODYPxFdthKTWtSvsq",
+    name: "Pepsi",
+    price: 4000,
+    description: "perrito1 description",
+    category_id: "kg9UEnhvCSzhWdiU6PGp",
   },
   {
-    name:"perrito8",
-    price:4000,
-    description:"perrito1 description",
-    category_id:"lhRODYPxFdthKTWtSvsq",
+    name: "Manzana",
+    price: 4000,
+    description: "perrito1 description",
+    category_id: "kg9UEnhvCSzhWdiU6PGp",
   },
   {
-    name:"perrito9",
-    price:4000,
-    description:"perrito1 description",
-    category_id:"lhRODYPxFdthKTWtSvsq",
+    name: "Colombiana",
+    price: 4000,
+    description: "perrito1 description",
+    category_id: "kg9UEnhvCSzhWdiU6PGp",
   },
   {
-    name:"perrito10",
-    price:4000,
-    description:"perrito1 description",
-    category_id:"lhRODYPxFdthKTWtSvsq",
+    name: "Heineken",
+    price: 3500,
+    description: "perrito1 description",
+    category_id: "uhxsXLyRv7alvVTNMEfM",
   },
   {
-    name:"perrito11",
-    price:4000,
-    description:"perrito1 description",
-    category_id:"lhRODYPxFdthKTWtSvsq",
+    name: "Andina",
+    price: 3000,
+    description: "perrito1 description",
+    category_id: "uhxsXLyRv7alvVTNMEfM",
   },
   {
-    name:"perrito12",
-    price:4000,
-    description:"perrito1 description",
-    category_id:"lhRODYPxFdthKTWtSvsq",
+    name: "Budweizer",
+    price: 3500,
+    description: "perrito1 description",
+    category_id: "uhxsXLyRv7alvVTNMEfM",
   },
-]
+  {
+    name: "Hatsu rosa",
+    price: 3000,
+    description: "Soda description",
+    category_id: "fE0gIRzHMgTrFI7IIIHn",
+  },
+  {
+    name: "Hatsu verde",
+    price: 3000,
+    description: "Soda description",
+    category_id: "fE0gIRzHMgTrFI7IIIHn",
+  },
+  {
+    name: "CM Mangostino",
+    price: 3000,
+    description: "Soda description",
+    category_id: "fE0gIRzHMgTrFI7IIIHn",
+  },
+  {
+    name: "CM Kiwi",
+    price: 3000,
+    description: "Soda description",
+    category_id: "fE0gIRzHMgTrFI7IIIHn",
+  },
+  {
+    name: "CM Granada",
+    price: 3000,
+    description: "Soda description",
+    category_id: "fE0gIRzHMgTrFI7IIIHn",
+  },
+  {
+    name: "CM Manzana verde",
+    price: 3000,
+    description: "Soda description",
+    category_id: "fE0gIRzHMgTrFI7IIIHn",
+  },
+  {
+    name: "CM Maracuya",
+    price: 3000,
+    description: "Soda description",
+    category_id: "fE0gIRzHMgTrFI7IIIHn",
+  },
+];
 
-export const migrateProducts=()=>{
-  // arr.forEach((prod)=>{
-  //   addNewProduct(prod)
-  // })
-}
+export const migrateProducts = () => {
+  arr.forEach((prod) => {
+    addNewProduct(prod);
+  });
+};

@@ -2,7 +2,7 @@
 import { MainLoader } from "@/components/mainLoader";
 import { LoginForm } from "@/components/loginForm";
 import { auth } from "@/firebase/client";
-import { routes } from "@/routes";
+import { pages, routes } from "@/routes";
 import { onAuthStateChanged } from "firebase/auth";
 import { useEffect, useState } from "react";
 import img from "@/assets/images/perritos1.png";
@@ -16,7 +16,7 @@ export default function HomePage() {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
         // Si el usuario no está autenticado, redirigirlo a la página de inicio
-        window.location.href = routes.APP;
+        window.location.href = pages.DASHBOARD;
       } else {
         setLoading(false);
       }

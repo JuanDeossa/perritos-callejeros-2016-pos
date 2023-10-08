@@ -1,8 +1,7 @@
 import "./globals.css";
-import { Inter, Urbanist } from "next/font/google";
+import { Urbanist } from "next/font/google";
 import { ReduxProvider } from "@/redux/provider";
 
-const interFont = Inter({ subsets: ["latin"], weight: ["400", "600", "900"] });
 const urbanistFont = Urbanist({ subsets: ["latin"], weight: ["400", "600", "900"] });
 
 export const metadata = {

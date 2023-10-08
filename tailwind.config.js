@@ -28,11 +28,11 @@ module.exports = {
           "red-200":"#f04141",
         }
       },
-      padding:{
-        headerH:16,
-        sideNavWB:200,
-        sideNavWL:80,
-      }
+      // padding:{
+      //   headerH:16,
+      //   sideNavWB:200,
+      //   sideNavWL:80,
+      // }
     },
   },
   plugins: [],

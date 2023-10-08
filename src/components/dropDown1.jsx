@@ -20,7 +20,7 @@ export const DropDown1 = () => {
       label: "ususarios",
       icon: <UserIcon />,
       action: () => {
-        // migrateProducts();
+        migrateProducts();
       },
     },
   ];

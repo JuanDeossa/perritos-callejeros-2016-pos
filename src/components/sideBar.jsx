@@ -9,24 +9,30 @@ import img8 from "@/assets/Chart.png";
 import img10 from "@/assets/Setting.png";
 import { useDispatch, useSelector } from "react-redux";
 import { setCurrentPage, toggleSideNav } from "@/redux/currentPageSlice";
+import { subPages } from "@/routes";
 
 export const SideBar = () => {
-  const { pageID,sideNavOpen } = useSelector((state) => state.currentPage.value);
+  const { pageID, sideNavOpen } = useSelector(
+    (state) => state.currentPage.value
+  );
   const dispatch = useDispatch();
   const Menus = [
-    { pageID: 0, title: "Ordenes", src: img3 },
-    { pageID: 1, title: "Nueva Orden", src: img4 },
-    { pageID: 2, title: "Gestion de Productos ", src: img6, gap: true },
-    { pageID: 3, title: "Informes", src: img8 },
-    { pageID: 4, title: "Configuracion", src: img10, gap: true },
+    { pageID: subPages.DASHBOARD, title: "Ordenes", src: img3 },
+    { pageID: subPages.NEW_ORDER, title: "Nueva Orden", src: img4 },
+    {
+      pageID: subPages.PRODUCTS,
+      title: "Gestion de Productos ",
+      src: img6,
+      gap: true,
+    },
+    // { pageID: 3, title: "Informes", src: img8 },
+    // { pageID: 4, title: "Configuracion", src: img10, gap: true },
   ];
 
   return (
-    <div id="SideBar" className="flex fixed">
+    <div className={`SideBar fixed flex ${sideNavOpen ? "w-48" : "w-20 "} duration-300 h-screen`}>
       <div
-        className={` ${
-          sideNavOpen ? "w-48" : "w-20 "
-        } bg-t1-blue-400 h-screen p-5  pt-8 relative duration-300`}
+        className={`w-full bg-t1-blue-400 p-5 pt-8`}
       >
         <Image
           alt=""
@@ -37,7 +43,6 @@ export const SideBar = () => {
         />
         <div className="flex gap-x-4 items-center">
           <MainIcon
-            id="MainIcon"
             className={`cursor-pointer duration-500 ${
               sideNavOpen && "rotate-[360deg]"
             }`}
@@ -55,13 +60,19 @@ export const SideBar = () => {
             <li
               key={index}
               className={`flex  rounded-md p-2 cursor-pointer hover:bg-light-white text-gray-300 text-sm items-center gap-x-4
-              ${Menu.gap ? "mt-14" : "mt-2"} ${
-                index === pageID && "bg-t1-blue-300"
+              ${Menu?.gap ? "mt-14" : "mt-2"} ${
+                Menu.pageID === pageID && "bg-t1-blue-300"
               } `}
-              onClick={() => dispatch(setCurrentPage(Menu.pageID))}
+              onClick={() => {
+                dispatch(setCurrentPage(Menu.pageID));
+              }}
             >
               <Image alt="" src={Menu.src} />
-              <span className={`${!sideNavOpen && "hidden"} origin-left duration-200`}>
+              <span
+                className={`${
+                  !sideNavOpen && "hidden"
+                } origin-left duration-200`}
+              >
                 {Menu.title}
               </span>
             </li>
