@@ -1,17 +1,19 @@
 import Image from "next/image";
 import React from "react";
-import img from "/src/assets/images/manzana.jpg"
-import { addNew } from "@/redux/orderProductsSlice";
+import img from "/src/assets/images/manzana.jpg";
+import { addNew, updateTotal } from "@/redux/orderDataSlice";
 import { useDispatch } from "react-redux";
 
-export const PruebaCard = ({product}) => {
-
-  const dispatch=useDispatch()
+export const PruebaCard = ({ product }) => {
+  const dispatch = useDispatch();
 
   return (
     <div
       className="w-32 max-w-sm bg-slate-300 border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 p-2"
-      onClick={()=>dispatch(addNew(product))}
+      onClick={() => {
+        dispatch(addNew(product));
+        // dispatch(updateTotal());
+      }}
     >
       <a href="#">
         <Image

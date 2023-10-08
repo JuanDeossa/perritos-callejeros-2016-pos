@@ -1,14 +1,14 @@
 import { configureStore } from "@reduxjs/toolkit";
 import modalStatesReducer from "./modalStatesSlice";
-import orderProductsReducer from "./orderProductsSlice";
+import orderDataReducer from "./orderDataSlice";
 import productsSlice from "./productsSlice";
 import currentPageSlice from "./currentPageSlice";
 
 export const store = configureStore({
   reducer: {
-    orderProductsList: orderProductsReducer,
+    orderData: orderDataReducer,
     modalStates: modalStatesReducer,
-    products:productsSlice,
-    currentPage:currentPageSlice,
+    products: productsSlice,
+    currentPage: currentPageSlice,
   },
 });

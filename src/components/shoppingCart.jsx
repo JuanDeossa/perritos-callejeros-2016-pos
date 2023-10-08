@@ -1,11 +1,9 @@
-import { deleteItem } from "@/redux/orderProductsSlice";
+import { deleteItem } from "@/redux/orderDataSlice";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 export const ShoppingCart = () => {
-  const orderProductsFromStore = useSelector(
-    (state) => state.orderProductsList.value
-  );
+  const { productsList, total } = useSelector((state) => state.orderData.value);
   return (
     // <div></div>
     <div class="pt-16 fixed inset-y-0 right-0 flex max-w-full pl-10">
@@ -15,7 +13,7 @@ export const ShoppingCart = () => {
         </h2>
         <div class="flex-1 overflow-y-auto px-4 py-6 sm:px-6">
           <ul role="list" class="-my-6 divide-y divide-gray-200">
-            {orderProductsFromStore.map((item) => (
+            {productsList.map((item) => (
               <OrderItemCard key={item?.id} product={item} />
             ))}
           </ul>
@@ -24,7 +22,7 @@ export const ShoppingCart = () => {
         <div class="border-t border-gray-200 px-4 py-6 sm:px-6">
           <div class="flex justify-between text-base font-medium text-gray-900">
             <p>Subtotal</p>
-            <p>$262.00</p>
+            <p>${total}</p>
           </div>
           <p class="mt-0.5 text-sm text-gray-500">
             Shipping and taxes calculated at checkout.

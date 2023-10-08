@@ -2,7 +2,7 @@ import React from "react";
 import AddIcon from "@/assets/icons/add_icon.svg";
 import SbusIcon from "@/assets/icons/subs_icon.svg";
 import { useDispatch } from "react-redux";
-import { decrement,increment } from "@/redux/orderProductsSlice";
+import { decrement,increment } from "@/redux/orderDataSlice";
 
 
 
