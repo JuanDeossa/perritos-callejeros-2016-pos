@@ -7,7 +7,7 @@ const arr = [
     description: "perrito description",
     category_id: "lhRODYPxFdthKTWtSvsq",
     image: {
-      url: null,
+      url: "https://img.freepik.com/vector-gratis/diseno-etiqueta-comida-rapida-hot-dog-aislado_1308-67129.jpg?w=2000",
       file: null,
     },
   },
@@ -17,7 +17,7 @@ const arr = [
     description: "Queso description",
     category_id: "SI0E2rLM5GUKlOOg7U4G",
     image: {
-      url: null,
+      url: "https://png.pngtree.com/png-vector/20211111/ourlarge/pngtree-chesse-cartoon-illustration-png-image_4028492.png",
       file: null,
     },
   },
@@ -27,7 +27,7 @@ const arr = [
     description: "Tocineta description",
     category_id: "SI0E2rLM5GUKlOOg7U4G",
     image: {
-      url: null,
+      url: "https://static.vecteezy.com/system/resources/previews/016/765/984/original/bacon-fast-food-cartoon-png.png",
       file: null,
     },
   },
@@ -37,7 +37,7 @@ const arr = [
     description: "Salchicha description",
     category_id: "SI0E2rLM5GUKlOOg7U4G",
     image: {
-      url: null,
+      url: "https://shinobi-stickers.com/cdn/shop/products/Happy_Silly_Party_Sausage_Hotdog_Cartoon_Emoji_6_660938854_1024x1024@2x.jpg?v=1536505009",
       file: null,
     },
   },
@@ -47,7 +47,7 @@ const arr = [
     description: "Coca cola original description",
     category_id: "kg9UEnhvCSzhWdiU6PGp",
     image: {
-      url: null,
+      url: "https://carulla.vtexassets.com/arquivos/ids/201727/Coca-Cola-330-Ml-Lata-1054389_a.jpg?v=1782132521",
       file: null,
     },
   },
@@ -57,7 +57,7 @@ const arr = [
     description: "Coca cola sin Azucar description",
     category_id: "kg9UEnhvCSzhWdiU6PGp",
     image: {
-      url: null,
+      url: "https://tofuu.getjusto.com/orioneat-prod-resized/Ymn7xk2LSfpFswXkG-1200-1200.webp",
       file: null,
     },
   },
@@ -67,7 +67,7 @@ const arr = [
     description: "Pepsi description",
     category_id: "kg9UEnhvCSzhWdiU6PGp",
     image: {
-      url: null,
+      url: "https://m.media-amazon.com/images/I/51h232yC+zL.jpg",
       file: null,
     },
   },
@@ -87,7 +87,7 @@ const arr = [
     description: "Colombiana description",
     category_id: "kg9UEnhvCSzhWdiU6PGp",
     image: {
-      url: null,
+      url: "https://cdn1.totalcommerce.cloud/homesentry/product-zoom/es/lata-gaseosa-colombiana-269ml-1.webp",
       file: null,
     },
   },
@@ -97,7 +97,7 @@ const arr = [
     description: "Heineken description",
     category_id: "uhxsXLyRv7alvVTNMEfM",
     image: {
-      url: null,
+      url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSL14Ulpyw72h3arZwRUBxme1wq6XUrvhWFSA&usqp=CAU",
       file: null,
     },
   },
@@ -107,7 +107,7 @@ const arr = [
     description: "Andina description",
     category_id: "uhxsXLyRv7alvVTNMEfM",
     image: {
-      url: null,
+      url: "https://www.jarris.co/app_data_archivos/jarris.soomi.co/productos/producto_7ec0fbce1180cd79291ad9eca4ec59c838a752b81678922619.jpg",
       file: null,
     },
   },
@@ -117,7 +117,7 @@ const arr = [
     description: "Budweizer description",
     category_id: "uhxsXLyRv7alvVTNMEfM",
     image: {
-      url: null,
+      url: "https://copservir.vtexassets.com/arquivos/ids/767077-800-auto?v=637950284422930000&width=800&height=auto&aspect=true",
       file: null,
     },
   },
@@ -127,7 +127,7 @@ const arr = [
     description: "Soda Hatsu rosa description",
     category_id: "fE0gIRzHMgTrFI7IIIHn",
     image: {
-      url: null,
+      url: "https://vaquitaexpress.com.co/media/catalog/product/cache/e89ece728e3939ca368b457071d3c0be/7/7/7702090063462_28.jpg",
       file: null,
     },
   },
@@ -137,7 +137,7 @@ const arr = [
     description: "Soda Hatsu verde description",
     category_id: "fE0gIRzHMgTrFI7IIIHn",
     image: {
-      url: null,
+      url: "https://jumbocolombiaio.vtexassets.com/arquivos/ids/417327/7702090063479.jpg?v=637998944909030000",
       file: null,
     },
   },
@@ -147,7 +147,7 @@ const arr = [
     description: "Soda CM Mangostino description",
     category_id: "fE0gIRzHMgTrFI7IIIHn",
     image: {
-      url: null,
+      url: "https://i0.wp.com/cooldrink.cool/wp-content/uploads/2022/10/mangostino-1.png?fit=341%2C627&ssl=1",
       file: null,
     },
   },
@@ -157,7 +157,7 @@ const arr = [
     description: "Soda CM Kiwi description",
     category_id: "fE0gIRzHMgTrFI7IIIHn",
     image: {
-      url: null,
+      url: "https://tofuu.getjusto.com/orioneat-local/resized2/jS4fyA2pYQJJrW8GG-1200-1200.webp",
       file: null,
     },
   },
@@ -167,7 +167,7 @@ const arr = [
     description: "Soda CM Granada description",
     category_id: "fE0gIRzHMgTrFI7IIIHn",
     image: {
-      url: null,
+      url: "https://i0.wp.com/cooldrink.cool/wp-content/uploads/2022/10/granada-2.png?fit=336%2C616&ssl=1",
       file: null,
     },
   },
@@ -177,7 +177,7 @@ const arr = [
     description: "Soda CM Manzana verde description",
     category_id: "fE0gIRzHMgTrFI7IIIHn",
     image: {
-      url: null,
+      url: "https://i0.wp.com/cooldrink.cool/wp-content/uploads/2022/10/Botella-cool-drink-verde-man-frente-sinsombra.png?fit=417%2C747&ssl=1",
       file: null,
     },
   },
@@ -187,7 +187,7 @@ const arr = [
     description: "Soda CM Maracuya description",
     category_id: "fE0gIRzHMgTrFI7IIIHn",
     image: {
-      url: null,
+      url: "https://i0.wp.com/cooldrink.cool/wp-content/uploads/2022/10/latas-maracuya-solas-1200-min.png?fit=1200%2C1200&ssl=1",
       file: null,
     },
   },
@@ -218,7 +218,7 @@ const arr2 = [
 ];
 
 export const migrateProducts = () => {
-  arr2.forEach((prod) => {
+  arr.forEach((prod) => {
     addNewProduct(prod);
   });
 };

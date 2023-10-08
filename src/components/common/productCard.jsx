@@ -29,13 +29,13 @@ export const ProductCard = ({ product, children }) => {
       <img
         alt="imagen del producto"
         src={product?.image?.url || placeHolderImage}
-        className="rounded-full bg-slate-600 w-full aspect-square bg-cover bg-center"
+        className="rounded-full bg-slate-100 w-full aspect-square bg-cover bg-center"
       />
       {/* <a href="#">
       </a> */}
       <div className="">
         <a href="#">
-          <h5 className="text-lg font-semibold tracking-tight text-gray-900 dark:text-white whitespace-nowrap overflow-hidden">
+          <h5 title={product.name} className="text-lg font-semibold tracking-tight text-gray-900 dark:text-white line-clamp-2 h-14">
             {product.name}
           </h5>
         </a>

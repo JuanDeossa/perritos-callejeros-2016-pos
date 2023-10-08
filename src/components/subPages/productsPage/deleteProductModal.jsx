@@ -54,7 +54,7 @@ const errorNotify = () =>
       {modalProps.isOpen && (
         <div
           id="popup-modal"
-          tabindex="-1"
+          tabIndex="-1"
           className="Modal1 fixed top-0 left-0 right-0 z-50 p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full grid place-content-center bg-cs_tr1"
         >
           <div className="relative w-full max-w-md max-h-full">
