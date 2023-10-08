@@ -1,4 +1,4 @@
-import { OrdesTable } from "@/components/ordesTable";
+import { OrdesTable } from "@/components/subPages/dashboard/ordesTable";
 import React from "react";
 
 export const DashboardSubPage = () => {

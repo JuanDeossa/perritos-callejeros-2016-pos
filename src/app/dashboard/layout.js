@@ -1,6 +1,6 @@
 "use client"
-import { AppHeader } from "@/components/appHeader";
-import { SideBar } from "@/components/sideBar";
+import { AppHeader } from "@/components/common/appHeader";
+import { SideBar } from "@/components/common/sideBar";
 import { useState } from "react";
 
 export default function DashboardLayout({ children }) {

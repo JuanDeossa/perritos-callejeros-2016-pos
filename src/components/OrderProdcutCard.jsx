@@ -2,7 +2,7 @@ import React from 'react'
 
 // import { ReactComponent as AddIcon} from '../assets/icons/add_icon.svg'
 import AddIcon from '../assets/icons/add_icon.svg'
-import { QuantityButton } from './quantityButton'
+import { QuantityButton } from './subPages/newOrder/QuantityButton'
 
 export const OrderProdcutCard = ({prod}) => {
   return (

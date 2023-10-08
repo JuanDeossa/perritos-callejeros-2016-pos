@@ -1,5 +1,5 @@
 import React from "react";
-import { PruebCard, PruebaCard } from "./pruebaCard";
+import { PruebCard, PruebaCard } from "../../common/pruebaCard";
 import { useSelector } from "react-redux";
 
 export const ProductsOrderList = () => {

@@ -1,22 +1,17 @@
-import {
-  editProductByID,
-  getAllCategories,
-  getAllProducts,
-} from "@/firebase/services";
+import { RefreshProducts, addNewProduct, getAllCategories, getAllProducts } from "@/firebase/services";
 import React, { useEffect, useState } from "react";
 import { useForm, Controller } from "react-hook-form";
 
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { Loader2 } from "./loader2";
+import { Loader2 } from "../../common/loader2";
 import { useDispatch } from "react-redux";
 import { setProducts } from "@/redux/productsSlice";
-import { closeModal } from "@/redux/modalStatesSlice";
 
-export const EditProductForm = ({ name, price, description, categoryID,id }) => {
+export const NewProductForm = () => {
   const [categories, setCategories] = useState([]);
   const [loading, setLoading] = useState(false);
-  const dispatch = useDispatch();
+  const dispatch=useDispatch()
   const successNotify = () =>
     toast.success("Producto creado con éxito!", {
       position: "top-left",
@@ -49,35 +44,26 @@ export const EditProductForm = ({ name, price, description, categoryID,id }) => 
     control,
     formState: { errors },
     reset,
-  } = useForm({
-    defaultValues: {
-      name: name,
-      price: price,
-      description: description,
-      categoryID: categoryID,
-    },
-  });
+  } = useForm();
 
   const onSubmit = async (data) => {
     // Aquí puedes enviar los datos del formulario a tu API o hacer lo que necesites con ellos
+    // console.log(data);
+    // data.price = parseFloat(data.price).toLocaleString('es-ES');
     setLoading(true);
-    const productEdited = await editProductByID({
-      id: id,
-      data: {
-        name: data.name,
-        price: data.price,
-        description: data.description,
-        category_id: data.categoryID,
-      },
+    const productCreated = await addNewProduct({
+      name: data.name,
+      price: data.price,
+      description: data.description,
+      category_id: data.categoryID,
     });
-    if (productEdited) {
+    if (productCreated) {
       successNotify();
-      dispatch(setProducts(await getAllProducts()));
-      sessionStorage.removeItem("products");
-      reset();
-      dispatch(closeModal("openModal2"))
-    } else {
-      errorNotify();
+      dispatch(setProducts(await getAllProducts()))
+      sessionStorage.removeItem("products")
+      reset()
+    }else{
+      errorNotify()
     }
     setLoading(false);
   };
@@ -88,16 +74,18 @@ export const EditProductForm = ({ name, price, description, categoryID,id }) => 
 
   return (
     <form
+      id="NewProductForm"
       onSubmit={handleSubmit(onSubmit)}
-      className="NewProductForm bg-inherit text-black p-6 rounded-lg flex flex-col gap-4 max-w-sm h-fit"
+      className="bg-gray-600 text-black p-6 rounded-lg shadow-lg flex flex-col gap-4 max-w-sm h-fit"
     >
-      <h4 className="font-bold text-2xl text-gray-100 border-b-2 mx-auto w-full text-center pb-2">
-        Edita el producto
+      <h4 className="font-bold text-2xl text-gray-100 border-b-2 mx-auto w-4/5 text-center pb-2">
+        Agrega un nuevo producto
       </h4>
       <div className="flex flex-col">
         <label htmlFor="name">Nombre del Producto</label>
         <Controller
           name="name"
+          defaultValue={""}
           control={control}
           rules={{ required: true, minLength: 5, maxLength: 20 }}
           render={({ field }) => <input type="text" id="name" {...field} />}
@@ -121,6 +109,7 @@ export const EditProductForm = ({ name, price, description, categoryID,id }) => 
         <label htmlFor="price">Precio</label>
         <Controller
           name="price"
+          defaultValue={""}
           control={control}
           rules={{ required: true, min: 100, max: 500000 }}
           render={({ field }) => <input type="number" id="price" {...field} />}
@@ -140,8 +129,11 @@ export const EditProductForm = ({ name, price, description, categoryID,id }) => 
         <label htmlFor="description">Descripción del Producto</label>
         <Controller
           name="description"
+          defaultValue={""}
           control={control}
-          render={({ field }) => <textarea id="description" {...field} />}
+          render={({ field }) => (
+            <textarea id="description" {...field} />
+          )}
         />
       </div>
 
@@ -149,11 +141,12 @@ export const EditProductForm = ({ name, price, description, categoryID,id }) => 
         <label htmlFor="categoryID">Categoría</label>
         <Controller
           name="categoryID"
+          defaultValue={""}
           control={control}
           rules={{ required: true }}
           render={({ field }) => (
             <select id="categoryID" placeholder="selecciona..." {...field}>
-              {/* <option value={""} style={{ display: "none" }} /> */}
+              <option value={""} style={{ display: "none" }} />
               {categories.map((cat) => (
                 <option key={cat.id} value={cat.id}>
                   {cat.name}
@@ -173,7 +166,7 @@ export const EditProductForm = ({ name, price, description, categoryID,id }) => 
           className="py-1 bg-gray-500 rounded-full mx-4 text-lg text-gray-100 font-bold border border-white hover:opacity-80"
           type="submit"
         >
-          Confirmar cambios
+          Agregar
         </button>
       )}
       <ToastContainer />

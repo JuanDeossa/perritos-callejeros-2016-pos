@@ -1,5 +1,5 @@
 "use client";
-import { NotFountPage } from "@/subPages/notFountPage";
+import { NotFountPage } from "@/components/subPages/notFound404/notFountPage";
 import { useSelector } from "react-redux";
 import { subPagesRouter } from "@/routes";
 

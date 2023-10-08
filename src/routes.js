@@ -1,6 +1,6 @@
-import { DashboardSubPage} from "./subPages/dashboardSubPage";
-import { NewOrderSubPage } from "./subPages/newOrderSubPage";
-import { ProductsSubPage } from "./subPages/productsPage";
+import { DashboardSubPage} from "./components/subPages/dashboard/dashboardSubPage";
+import { NewOrderSubPage } from "./components/subPages/newOrder/newOrderSubPage";
+import { ProductsSubPage } from "./components/subPages/productsPage/productsPage";
 
 export const modalKeys = {
   confirmDeleteModal: "confirmDeleteModal",

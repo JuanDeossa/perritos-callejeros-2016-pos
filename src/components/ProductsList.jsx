@@ -1,11 +1,10 @@
 "use client";
 import { getAllProducts } from "@/firebase/services";
 import React, { useEffect } from "react";
-import { ProductCard } from "./productCard";
 import { useDispatch, useSelector } from "react-redux";
 import { setProducts } from "@/redux/productsSlice";
 import { useSessionStorage } from "@/hooks/useSessionStorage";
-import { ProductsOrderList } from "./productsOrderList";
+import { ProductsOrderList } from "./subPages/newOrder/productsOrderList";
 
 export const ProductsList = () => {
   const dispatch = useDispatch();

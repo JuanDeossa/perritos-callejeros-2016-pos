@@ -1,5 +1,5 @@
 "use client";
-import { MainLoader } from "@/components/mainLoader";
+import { MainLoader } from "@/components/common/mainLoader";
 import { LoginForm } from "@/components/loginForm";
 import { auth } from "@/firebase/client";
 import { pages, routes } from "@/routes";
