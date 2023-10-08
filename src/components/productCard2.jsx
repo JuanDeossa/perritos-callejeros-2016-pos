@@ -31,13 +31,13 @@ export const ProductCard2 = ({ product }) => {
 
   return (
     <div
-      className="relative flex flex-col gap-2 bg-t1-blue-200 rounded-lg py-3 justify-between items-center cursor-pointer text-gray-800 font-semibold px-4  w-40 h-40 border border-gray-300"
+      className="ProductCard2 relative flex flex-col gap-2 bg-jt1-gray3 rounded-lg py-3 justify-between items-center cursor-pointer text-gray-800 font-semibold px-4  w-40 h-40 border border-gray-300"
       onClick={() => {}}
     >
       <div className="flex flex-col gap-2 ">
-        <span className="text-2xl opacity-100 text-center leading-none text-gray-50 h-12">
+        <h5 className="text-2xl opacity-100 leading-none text-gray-50 h-12">
           {product?.name}
-        </span>
+        </h5>
         <span className="text-lg opacity-100 leading-5 text-center">
           valor: ${product?.price}
         </span>

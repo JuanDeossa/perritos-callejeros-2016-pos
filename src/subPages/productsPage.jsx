@@ -8,7 +8,7 @@ export const ProductsSubPage = () => {
   return (
     <div className="ProductsPage w-full h-full flex gap-6 px-4">
       <ProductsList2 />
-      <NewProductForm />
+      {/* <NewProductForm /> */}
       <DeleteProductModal />
       <EditProductModal />
     </div>

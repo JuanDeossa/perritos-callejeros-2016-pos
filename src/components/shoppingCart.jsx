@@ -6,12 +6,12 @@ export const ShoppingCart = () => {
   const { productsList, total } = useSelector((state) => state.orderData.value);
   return (
     // <div></div>
-    <div class="pt-16 fixed inset-y-0 right-0 flex max-w-full pl-10">
-      <div class="flex h-full flex-col overflow-y-scroll bg-white shadow-xl">
-        <h2 class="text-lg font-medium text-gray-900" id="slide-over-title">
+    <div class="ShoppingCart fixed top-0 right-0 pt-16  flex pl-10 h-screen">
+      <div class="flex h-full flex-col bg-jt1-gray1 shadow-xl">
+        <h2 class="text-lg font-bold text-gray-200 p-4">
           Shopping cart
         </h2>
-        <div class="flex-1 overflow-y-auto px-4 py-6 sm:px-6">
+        <div class="flex-1 overflow-y-scroll px-4 mr-2 py-6 sm:px-6">
           <ul role="list" class="-my-6 divide-y divide-gray-200">
             {productsList.map((item) => (
               <OrderItemCard key={item?.id} product={item} />
@@ -21,8 +21,8 @@ export const ShoppingCart = () => {
 
         <div class="border-t border-gray-200 px-4 py-6 sm:px-6">
           <div class="flex justify-between text-base font-medium text-gray-900">
-            <p>Subtotal</p>
-            <p>${total}</p>
+            <p className="text-base text-gray-100 font-semibold">Subtotal</p>
+            <p className="text-xl text-gray-100 font-bold">${total}</p>
           </div>
           <p class="mt-0.5 text-sm text-gray-500">
             Shipping and taxes calculated at checkout.
@@ -30,7 +30,7 @@ export const ShoppingCart = () => {
           <div class="mt-6">
             <a
               href="#"
-              class="flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700"
+              class="flex items-center justify-center rounded-md border border-transparent bg-jt1-green1 px-6 py-3 text-base font-medium text-white shadow-sm hover:opacity-80"
             >
               Checkout
             </a>
@@ -67,7 +67,7 @@ const OrderItemCard = ({ product }) => {
 
       <div class="pl-4 flex flex-1 flex-col">
         <div>
-          <div class="flex justify-between text-base font-medium text-gray-900">
+          <div class="flex justify-between text-base font-semibold text-gray-300">
             <h3>
               <a href="#">{product.name}</a>
             </h3>
@@ -83,7 +83,7 @@ const OrderItemCard = ({ product }) => {
           <div class="flex">
             <button
               type="button"
-              class="font-medium text-indigo-600 hover:text-indigo-500"
+              class="font-medium text-jt1-green1 hover:opacity-60"
               onClick={() => dispatch(deleteItem(product.id))}
             >
               Remove

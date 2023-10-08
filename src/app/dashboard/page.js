@@ -9,7 +9,7 @@ export const DashboardPage = () => {
   );
 
   return (
-    <div className={`SubPagesContainer bg-indigo-600 w-full pt-6 ${sideNavOpen?"pl-48" : "pl-20 "} duration-300`}>
+    <div className={`SubPagesContainer bg-jt1-gray2 w-full pt-6 ${sideNavOpen?"pl-48" : "pl-20 "} duration-300`}>
       {subPagesRouter[pageID] || <NotFountPage />}
     </div>
   );

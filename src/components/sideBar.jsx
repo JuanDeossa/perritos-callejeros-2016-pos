@@ -30,9 +30,9 @@ export const SideBar = () => {
   ];
 
   return (
-    <div className={`SideBar fixed flex ${sideNavOpen ? "w-48" : "w-20 "} duration-300 h-screen`}>
+    <div className={`SideBar bg-jt1-gray1 border-t border-t-white fixed flex ${sideNavOpen ? "w-48" : "w-20 "} duration-300 h-screen`}>
       <div
-        className={`w-full bg-t1-blue-400 p-5 pt-8`}
+        className={`w-full  p-5 pt-8`}
       >
         <Image
           alt=""

@@ -26,7 +26,10 @@ export const addNewProduct = async ({
   price,
   description,
   category_id,
-  logo = "🍴",
+  image={
+    url:"",
+    file:null,
+  },
 }) => {
   try {
     const res = await addDoc(collection(firebaseDB, "products"), {
@@ -34,7 +37,7 @@ export const addNewProduct = async ({
       price,
       description,
       category_id,
-      logo,
+      image,
     });
     if (res.id) {
       return true;
