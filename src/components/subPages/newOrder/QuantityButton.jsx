@@ -19,8 +19,8 @@ export const QuantityButton = ({ add = true, id }) => {
 
   return (
     <button
-    style={{backgroundColor:add?'green':'red'}}
-      className={` w-8 h-8 rounded-lg grid place-content-center active:scale-90`}
+    style={{backgroundColor:add?'':''}}
+      className={` w-6 h-6 rounded-lg grid place-content-center active:scale-90 text-white hover:opacity-75`}
       onClick={add ? handleSum : handleRes}
     >
       {add ? <AddIcon /> : <SubsIcon />}
