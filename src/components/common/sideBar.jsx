@@ -1,6 +1,5 @@
 "use client";
 import Image from "next/image";
-import MainIcon from "@/assets/icons/building-store.svg";
 import img1 from "@/assets/control.png";
 import img3 from "@/assets/Chart_fill.png";
 import img4 from "@/assets/Chat.png";
@@ -10,6 +9,7 @@ import img10 from "@/assets/Setting.png";
 import { useDispatch, useSelector } from "react-redux";
 import { setCurrentPage, toggleSideNav } from "@/redux/currentPageSlice";
 import { subPages } from "@/routes";
+import { StoreIcon } from "../iconsProvider";
 
 export const SideBar = () => {
   const { pageID, sideNavOpen } = useSelector(
@@ -42,7 +42,7 @@ export const SideBar = () => {
           onClick={() => dispatch(toggleSideNav())}
         />
         <div className="flex gap-x-4 items-center">
-          <MainIcon
+          <StoreIcon
             className={`cursor-pointer duration-500 ${
               sideNavOpen && "rotate-[360deg]"
             }`}

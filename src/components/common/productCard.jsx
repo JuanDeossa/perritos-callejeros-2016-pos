@@ -6,6 +6,7 @@ const placeHolderImage =
   "https://universalele.websites.co.in/obaju-turquoise/img/product-placeholder.png";
 import { addNew } from "@/redux/orderDataSlice";
 import { useDispatch } from "react-redux";
+import { getFormatoCOP } from "@/utils";
 
 export const ProductCard = ({ product, children }) => {
   const dispatch = useDispatch();
@@ -31,24 +32,19 @@ export const ProductCard = ({ product, children }) => {
         src={product?.image?.url || placeHolderImage}
         className="rounded-full bg-slate-100 w-full aspect-square bg-cover bg-center"
       />
-      {/* <a href="#">
-      </a> */}
       <div className="">
         <a href="#">
-          <h5 title={product.name} className="text-lg font-semibold tracking-tight text-gray-900 dark:text-white line-clamp-2 h-14">
+          <h5
+            title={product.name}
+            className="text-lg font-semibold tracking-tight text-gray-900 dark:text-white line-clamp-2 h-14"
+          >
             {product.name}
           </h5>
         </a>
         <div className="flex items-center justify-between">
           <span className="text-2xl font-bold text-gray-900 dark:text-white">
-            ${product.price}
+            ${getFormatoCOP(product.price)}
           </span>
-          {/* <a
-            href="#"
-            className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-          >
-            Add to cart
-          </a> */}
         </div>
       </div>
       {children}

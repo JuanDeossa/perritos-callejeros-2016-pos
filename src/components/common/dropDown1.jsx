@@ -1,10 +1,9 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 
-import LogOutIcon from "@/assets/icons/logout.svg";
-import UserIcon from "@/assets/icons/user-circle.svg";
 import { logoutAction } from "@/firebase/auth";
 import { migrateProducts } from "@/firebase/pruebas";
+import { LogoutIcon, UserIcon } from "../iconsProvider";
 
 export const DropDown1 = () => {
   const [open, setOpen] = useState(false);
@@ -12,7 +11,7 @@ export const DropDown1 = () => {
     {
       id: 1,
       label: "Logout",
-      icon: <LogOutIcon />,
+      icon: <LogoutIcon />,
       action: () => {
         logoutAction();
       },
