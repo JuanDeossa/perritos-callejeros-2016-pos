@@ -1,5 +1,5 @@
 "use client"
-import { routes } from "@/routes";
+import { routes } from "@/utils/routes";
 import React, { useEffect, useState } from "react";
 import { AppHeader } from "./appHeader";
 import { SideBar } from "./sideBar";

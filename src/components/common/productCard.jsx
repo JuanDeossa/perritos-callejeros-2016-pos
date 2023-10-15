@@ -6,7 +6,7 @@ const placeHolderImage =
   "https://universalele.websites.co.in/obaju-turquoise/img/product-placeholder.png";
 import { addNew } from "@/redux/orderDataSlice";
 import { useDispatch } from "react-redux";
-import { getFormatoCOP } from "@/utils";
+import { getFormatoCOP } from "@/utils/dataFormat";
 
 export const ProductCard = ({ product, children }) => {
   const dispatch = useDispatch();

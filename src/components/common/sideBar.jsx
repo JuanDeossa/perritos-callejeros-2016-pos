@@ -8,7 +8,7 @@ import img8 from "@/assets/Chart.png";
 import img10 from "@/assets/Setting.png";
 import { useDispatch, useSelector } from "react-redux";
 import { setCurrentPage, toggleSideNav } from "@/redux/currentPageSlice";
-import { subPages } from "@/routes";
+import { subPages } from "@/utils/routes";
 import { StoreIcon } from "./iconsProvider";
 
 export const SideBar = () => {

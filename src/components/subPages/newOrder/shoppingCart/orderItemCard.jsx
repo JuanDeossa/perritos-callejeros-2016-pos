@@ -1,7 +1,7 @@
 import { deleteItem } from "@/redux/orderDataSlice";
 import { useDispatch } from "react-redux";
 import { QuantityButton } from "../QuantityButton";
-import { getFormatoCOP } from "@/utils";
+import { getFormatoCOP } from "@/utils/dataFormat";
 import { TrashIcon } from "@/components/common/iconsProvider";
 
 

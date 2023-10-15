@@ -1,6 +1,7 @@
 import { InfoIcon } from "@/components/common/iconsProvider";
-import { getFormatoCOP } from "@/utils";
-import React from "react";
+import { fillArray } from "@/utils";
+import { getOrdersArray } from "@/utils/backend";
+import React, { useState } from "react";
 
 const tableHeaders = [
   { id: "Fecha", label: "Fecha" },
@@ -12,146 +13,44 @@ const tableHeaders = [
   { id: "Detalle", label: "Detalle" },
 ];
 
-const ordersArray = [
-  {
-    id: "00094-001-0097",
-    date: "14/10/2023-10.33PM ",
-    client: "Ricardo",
-    employee: "Duvan",
-    total: getFormatoCOP(40000),
-    state: {
-      id: 2,
-      label: "Completed",
-    },
-  },
-  {
-    id: "00094-001-0098",
-    date: "14/10/2023-04.28PM ",
-    client: "Cesar",
-    employee: "Duvan",
-    total: getFormatoCOP(32500),
-    state: {
-      id: 3,
-      label: "Cancelado",
-    },
-  },
-  {
-    id: "00094-001-0097",
-    date: "14/10/2023-08.03PM ",
-    client: "Ricardo",
-    employee: "Duvan",
-    total: getFormatoCOP(40000),
-    state: {
-      id: 1,
-      label: "En progreso",
-    },
-  },
-  {
-    id: "00094-001-0097",
-    date: "14/10/2023-10.33PM ",
-    client: "Ricardo",
-    employee: "Duvan",
-    total: getFormatoCOP(40000),
-    state: {
-      id: 2,
-      label: "Completed",
-    },
-  },
-  {
-    id: "00094-001-0097",
-    date: "14/10/2023-10.33PM ",
-    client: "Ricardo",
-    employee: "Duvan",
-    total: getFormatoCOP(40000),
-    state: {
-      id: 2,
-      label: "Completed",
-    },
-  },
-  {
-    id: "00094-001-0098",
-    date: "14/10/2023-04.28PM ",
-    client: "Cesar",
-    employee: "Duvan",
-    total: getFormatoCOP(32500),
-    state: {
-      id: 3,
-      label: "Cancelado",
-    },
-  },
-  {
-    id: "00094-001-0097",
-    date: "14/10/2023-08.03PM ",
-    client: "Ricardo",
-    employee: "Duvan",
-    total: getFormatoCOP(40000),
-    state: {
-      id: 1,
-      label: "En progreso",
-    },
-  },
-  {
-    id: "00094-001-0097",
-    date: "14/10/2023-10.33PM ",
-    client: "Ricardo",
-    employee: "Duvan",
-    total: getFormatoCOP(40000),
-    state: {
-      id: 2,
-      label: "Completed",
-    },
-  },
-  {
-    id: "00094-001-0097",
-    date: "14/10/2023-10.33PM ",
-    client: "Ricardo",
-    employee: "Duvan",
-    total: getFormatoCOP(40000),
-    state: {
-      id: 2,
-      label: "Completed",
-    },
-  },
-  {
-    id: "00094-001-0098",
-    date: "14/10/2023-04.28PM ",
-    client: "Cesar",
-    employee: "Duvan",
-    total: getFormatoCOP(32500),
-    state: {
-      id: 3,
-      label: "Cancelado",
-    },
-  },
-  {
-    id: "00094-001-0097",
-    date: "14/10/2023-08.03PM ",
-    client: "Ricardo",
-    employee: "Duvan",
-    total: getFormatoCOP(40000),
-    state: {
-      id: 1,
-      label: "En progreso",
-    },
-  },
-  {
-    id: "00094-001-0097",
-    date: "14/10/2023-10.33PM ",
-    client: "Ricardo",
-    employee: "Duvan",
-    total: getFormatoCOP(40000),
-    state: {
-      id: 2,
-      label: "Completed",
-    },
-  },
-];
-
 export const OrdesTable = () => {
+  const itemsPerPage = 10;
+  const [currentPage, setCurrentPage] = useState(0);
+  const [ordersArray, setOrdersArray] = useState([...getOrdersArray()]);
+  const [ordersArrayToShow, setOrdersArrayToShow] = useState(
+    fillArray({
+      arr: ordersArray.slice(currentPage, currentPage + itemsPerPage),
+      itemsPerPage: itemsPerPage,
+    })
+  );
+  const totalPages = Math.ceil(ordersArray.length / itemsPerPage);
+
+  const handleNext = () => {
+    if (currentPage < totalPages - 1) {
+      setCurrentPage(currentPage + 1);
+      const indiceInicio = (currentPage + 1) * itemsPerPage;
+      const indiceFin = (currentPage + 1) * itemsPerPage + itemsPerPage;
+      const newArr = ordersArray.slice(indiceInicio, indiceFin);
+      setOrdersArrayToShow(
+        fillArray({ arr: newArr, itemsPerPage: itemsPerPage })
+      );
+    }
+  };
+  const handlePrev = () => {
+    if (currentPage > 0) {
+      setCurrentPage(currentPage - 1);
+      setCurrentPage(currentPage - 1);
+      const indiceInicio = (currentPage - 1) * itemsPerPage;
+      const indiceFin = (currentPage - 1) * itemsPerPage + itemsPerPage;
+      const newArr = ordersArray.slice(indiceInicio, indiceFin);
+      setOrdersArrayToShow(newArr);
+    }
+  };
+
   return (
-    <div className="OrdesTable w-full max-w-6xl mx-auto overflow-x-auto shadow-md sm:rounded-lg">
+    <div className="OrdesTable w-full max-w-6xl mx-auto overflow-x-auto shadow-md sm:rounded-lg bg-gray-50 dark:bg-gray-700">
       <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400 ">
-        <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+        <thead className="text-xs text-gray-700 uppercase  dark:text-gray-400">
           <tr>
             {tableHeaders.map((header) => (
               <OrderHeader key={header?.id} header={header} />
@@ -159,16 +58,87 @@ export const OrdesTable = () => {
           </tr>
         </thead>
         <tbody>
-          {ordersArray.length < 5
-            ? [...ordersArray, {}, {}, {}].map((order) => (
-                <OrderRow key={order.id} order={order} />
-              ))
-            : [...ordersArray].map((order) => (
-                <OrderRow key={order.id} order={order} />
-              ))}
+          {ordersArrayToShow.map((order, index) => (
+            <OrderRow key={`${order.id}-${index}`} order={order} />
+          ))}
         </tbody>
       </table>
+      {ordersArray.length > 10 && (
+        <div className="py-2 flex gap-5 justify-center items-center">
+          <span>{`Total de ordenes: ${ordersArray.length},  Pagina ${
+            currentPage + 1
+          } de ${totalPages}`}</span>
+          <PaginationWrapper
+            currentPage={currentPage}
+            totalPages={totalPages}
+            handlePrev={handlePrev}
+            handleNext={handleNext}
+          />
+        </div>
+      )}
     </div>
+  );
+};
+
+const PaginationWrapper = ({
+  currentPage,
+  totalPages,
+  handlePrev,
+  handleNext,
+}) => {
+  return (
+    <ul className="PaginationWrapper flex items-center -space-x-px h-8 text-sm">
+      <li className="PaginationWrapper-prev" onClick={handlePrev}>
+        <svg
+          className={`w-2.5 h-2.5 ${currentPage === 0 && "opacity-30"}`}
+          aria-hidden="true"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 6 10"
+        >
+          <path
+            stroke="currentColor"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="2"
+            d="M5 1 1 5l4 4"
+          />
+        </svg>
+      </li>
+      <li
+        value={currentPage + 1}
+        className={`PaginationWrapper-item bg-indigo-300`}
+      >
+        {currentPage + 1}
+      </li>
+      <li value={currentPage + 2} className={`PaginationWrapper-item`}>
+        {currentPage === totalPages - 1 ? "" : currentPage + 2}
+      </li>
+      <li value={currentPage + 3} className={`PaginationWrapper-item`}>
+        {currentPage === totalPages - 1 || currentPage === totalPages - 2
+          ? ""
+          : currentPage + 3}
+      </li>
+      <li className="PaginationWrapper-next" onClick={handleNext}>
+        <svg
+          className={`w-2.5 h-2.5 ${
+            currentPage === totalPages - 1 && "opacity-30"
+          }`}
+          aria-hidden="true"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 6 10"
+        >
+          <path
+            stroke="currentColor"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="2"
+            d="m1 9 4-4-4-4"
+          />
+        </svg>
+      </li>
+    </ul>
   );
 };
 
@@ -194,7 +164,7 @@ const OrderRow = ({ order = null }) => {
         {order?.total ? `$${order?.total}` : "-"}
       </td>
       <td className="px-3 py-2">
-        {order?.state ? <StatusIndicator status={order?.state} /> : "-"}
+        <StatusIndicator status={order?.state} />
       </td>
       <td className="px-7 py-2">
         {order?.state ? (
@@ -217,14 +187,14 @@ const StatusIndicator = ({ status }) => {
       case 3:
         return "bg-red-500";
       default:
-        return "bg-jt1-gray3";
+        return "bg-none text-transparent";
     }
   };
   return (
     <p
       className={`py-1 px-2 whitespace-nowrap rounded-lg max-w-[120px] text-white text-center font-bold ${getBackgroundColor()}`}
     >
-      {status?.label}
+      {status?.label || "XXX"}
     </p>
   );
 };

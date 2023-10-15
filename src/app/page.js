@@ -2,7 +2,7 @@
 import { MainLoader } from "@/components/common/mainLoader";
 import { LoginForm } from "@/components/loginForm";
 import { auth } from "@/firebase/client";
-import { pages, routes } from "@/routes";
+import { pages, routes } from "@/utils/routes";
 import { onAuthStateChanged } from "firebase/auth";
 import { useEffect, useState } from "react";
 import img from "@/assets/images/perritos1.png";

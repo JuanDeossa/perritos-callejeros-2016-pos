@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
 import "./shoppingCart.css";
-import { getFormatoCOP } from "@/utils";
+import { getFormatoCOP } from "@/utils/dataFormat";
 import { OrderItemCard } from "./orderItemCard";
 
 export const ShoppingCart = () => {

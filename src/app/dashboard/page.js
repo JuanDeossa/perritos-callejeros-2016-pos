@@ -1,7 +1,7 @@
 "use client";
 import { NotFountPage } from "@/components/subPages/notFound404/notFountPage";
 import { useSelector } from "react-redux";
-import { subPagesRouter } from "@/routes";
+import { subPagesRouter } from "@/utils/routes";
 
 export const DashboardPage = () => {
   const { pageID, sideNavOpen } = useSelector(

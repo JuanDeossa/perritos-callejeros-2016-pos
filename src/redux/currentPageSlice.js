@@ -1,9 +1,9 @@
-import { subPages } from "@/routes";
+import { subPages } from "@/utils/routes";
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   value: {
-    pageID: subPages.NEW_ORDER,
+    pageID: subPages.DASHBOARD,
     sideNavOpen: true,
   },
 };
