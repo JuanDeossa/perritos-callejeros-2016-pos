@@ -3,7 +3,7 @@ import React, { useState } from "react";
 
 import { logoutAction } from "@/firebase/auth";
 import { migrateProducts } from "@/firebase/pruebas";
-import { LogoutIcon, UserIcon } from "../iconsProvider";
+import { LogoutIcon, UserIcon } from "./iconsProvider";
 
 export const DropDown1 = () => {
   const [open, setOpen] = useState(false);

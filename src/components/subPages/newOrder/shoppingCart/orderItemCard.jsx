@@ -2,7 +2,7 @@ import { deleteItem } from "@/redux/orderDataSlice";
 import { useDispatch } from "react-redux";
 import { QuantityButton } from "../QuantityButton";
 import { getFormatoCOP } from "@/utils";
-import { TrashIcon } from "@/components/iconsProvider";
+import { TrashIcon } from "@/components/common/iconsProvider";
 
 
 export const OrderItemCard = ({ product }) => {

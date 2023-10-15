@@ -9,7 +9,7 @@ import img10 from "@/assets/Setting.png";
 import { useDispatch, useSelector } from "react-redux";
 import { setCurrentPage, toggleSideNav } from "@/redux/currentPageSlice";
 import { subPages } from "@/routes";
-import { StoreIcon } from "../iconsProvider";
+import { StoreIcon } from "./iconsProvider";
 
 export const SideBar = () => {
   const { pageID, sideNavOpen } = useSelector(

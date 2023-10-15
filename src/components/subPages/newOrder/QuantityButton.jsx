@@ -1,7 +1,7 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { decrement, increment } from "@/redux/orderDataSlice";
-import { MinusIcon, PlusIcon } from "@/components/iconsProvider";
+import { MinusIcon, PlusIcon } from "@/components/common/iconsProvider";
 
 export const QuantityButton = ({ add = true, id }) => {
   const dispatch = useDispatch();
