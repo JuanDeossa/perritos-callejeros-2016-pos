@@ -18,6 +18,7 @@ module.exports = {
           gray2:"#262837",
           gray3:"#5d6c7e",
           green1:"#008c9e",
+          modalBg1:"rgba(0,0,0,.85)"
         },
         cs_purple1:"rgba(99,102,241, .8)",
         cs_gray1:'#161616',
