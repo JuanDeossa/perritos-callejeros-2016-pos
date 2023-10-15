@@ -30,7 +30,7 @@ export const SideBar = () => {
   ];
 
   return (
-    <div className={`SideBar bg-jt1-gray1 border-t border-t-white fixed flex ${sideNavOpen ? "w-48" : "w-20 "} duration-300 h-screen`}>
+    <div className={`SideBar bg-jt1-gray1 border-t border-t-white fixed flex ${sideNavOpen ? "w-48" : "w-20 "} duration-300 h-screen max-md:w-20`}>
       <div
         className={`w-full  p-5 pt-8`}
       >
@@ -38,10 +38,10 @@ export const SideBar = () => {
           alt=""
           src={img1}
           className={`absolute cursor-pointer -right-3 top-9 w-7 border-t1bg-t1-blue-400
-           border-2 rounded-full  ${!sideNavOpen && "rotate-180"}`}
+           border-2 rounded-full  ${!sideNavOpen && "rotate-180"} max-md:hidden`}
           onClick={() => dispatch(toggleSideNav())}
         />
-        <div className="flex gap-x-4 items-center">
+        <div className="flex gap-x-4 items-center max-md:hidden">
           <StoreIcon
             className={`cursor-pointer duration-500 ${
               sideNavOpen && "rotate-[360deg]"
@@ -71,7 +71,7 @@ export const SideBar = () => {
               <span
                 className={`${
                   !sideNavOpen && "hidden"
-                } origin-left duration-200`}
+                } origin-left duration-200 max-md:hidden`}
               >
                 {Menu.title}
               </span>

@@ -194,7 +194,7 @@ const StatusIndicator = ({ status }) => {
     <p
       className={`py-1 px-2 whitespace-nowrap rounded-lg max-w-[120px] text-white text-center font-bold ${getBackgroundColor()}`}
     >
-      {status?.label || "XXX"}
+      {status?.label || "-"}
     </p>
   );
 };
